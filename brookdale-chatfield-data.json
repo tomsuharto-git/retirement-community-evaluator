@@ -1,0 +1,66 @@
+{
+  "name": "Brookdale Chatfield",
+  "location": "West Hartford",
+  "address": "1 Chatfield Drive, West Hartford, CT 06110",
+  "description": "Part of the nation's largest senior living provider, Brookdale Chatfield offers independent living, assisted living, and memory care on a single campus nestled on over 10 acres of beautifully landscaped grounds in West Hartford. Named a U.S. News 'Best Senior Living Community' for memory care, the community features chef-prepared restaurant-style dining, luxury amenities including a sports bar and theater, and personalized care plans that adjust as needs change.",
+  "community_type": "Senior Living Community (IL, AL, MC)",
+  "resident_count": 120,
+  "star_rating": 3.8,
+  "monthly_cost_min": 4095,
+  "monthly_cost_max": 8025,
+  "phone": "(860) 561-1669",
+  "website": "https://www.brookdale.com/en/communities/brookdale-chatfield.html",
+  "care_levels": [
+    "Independent Living",
+    "Assisted Living",
+    "Memory Care"
+  ],
+  "housing_options": [
+    "Studio",
+    "One-bedroom apartment",
+    "Two-bedroom apartment"
+  ],
+  "amenities": [
+    "10+ Acres of Landscaped Grounds",
+    "Restaurant-Style Dining with Chef-Prepared Meals",
+    "Pub & Sports Bar",
+    "Theater",
+    "Fitness Center with Exercise Classes",
+    "Game Room with Billiards",
+    "Arts & Crafts Studio",
+    "Library",
+    "Beauty Salon & Barber Shop",
+    "Café & Bistro",
+    "Walking Paths Throughout Campus",
+    "Therapy Room",
+    "24/7 Emergency Alert System",
+    "Transportation Services",
+    "Housekeeping & Laundry Services",
+    "Concierge Services",
+    "Guest Suites",
+    "Personal Solutions Ordering Program",
+    "Meditation Groups & Wellness Classes",
+    "Social Activities & Entertainment"
+  ],
+  "financials_summary": "Brookdale Chatfield offers a flexible fee-for-service model with no large entrance fee required, with monthly costs ranging from $4,095 to $8,025 depending on care level. As part of the nation's largest senior living provider, residents pay only for the services they need, with care plans that adjust as needs change, plus a one-time community fee of $550-$6,100.",
+  "care_summary": "As a U.S. News 'Best Senior Living Community' for memory care, Brookdale Chatfield provides three levels of care on one campus - independent living, assisted living, and specialized memory care using person-centered Celebrations programming. With 24/7 staffing, personalized care plans, and the comprehensive Optimum Life® wellness approach, transitions between care levels are seamless as needs evolve.",
+  "housing_summary": "Brookdale Chatfield offers spacious apartments from studios to two-bedroom units across its 10-acre landscaped campus, with independent living residences featuring full kitchens and in-unit washer/dryers. Semi-private options provide more affordable choices, while memory care apartments are located in secured areas designed specifically for residents with Alzheimer's and dementia.",
+  "community_summary": "Nestled on over 10 acres near West Farms Mall and Wolcott Park, Brookdale Chatfield features luxury amenities including a pub/sports bar, theater, arts studio, and restaurant-style dining with chef-prepared meals. Residents enjoy daily activities from karaoke to meditation groups, walking paths through beautifully landscaped grounds, and the convenience of the Personal Solutions ordering program.",
+  "data_confidence": {
+    "pricing": "high",
+    "amenities": "high",
+    "resident_count": "estimated",
+    "care_levels": "confirmed",
+    "housing_options": "confirmed"
+  },
+  "sources": [
+    "Official Brookdale website: https://www.brookdale.com/en/communities/brookdale-chatfield.html",
+    "U.S. News Senior Living ratings",
+    "A Place for Mom: 44 reviews",
+    "Seniorly community profile",
+    "Caring.com: 19 reviews",
+    "SeniorSite: 8/10 rating",
+    "Brookdale corporate payment model documentation"
+  ],
+  "notes": "Part of Brookdale Senior Living (nation's largest provider). Fee-for-service model with no entrance fee (differs from nearby CCRCs). U.S. News award for memory care. One-time community fee $550-$6,100. Closest to home at 2.1 miles."
+}

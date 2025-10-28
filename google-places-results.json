@@ -1,0 +1,110 @@
+[
+  {
+    "name": "Brookdale Chatfield",
+    "status": "success",
+    "place_id": "ChIJjV5sDQut54kRMXt5s8IiMd0",
+    "address": "1 Chatfield Dr, West Hartford, CT 06110, USA",
+    "images": [
+      "brookdale-chatfield-1.jpg",
+      "brookdale-chatfield-2.jpg",
+      "brookdale-chatfield-3.jpg"
+    ],
+    "total_photos_available": 6
+  },
+  {
+    "name": "The Reservoir",
+    "status": "success",
+    "place_id": "ChIJm_A33Lat54kRh-uUiPb0R8w",
+    "address": "1 Emily Way, West Hartford, CT 06107, USA",
+    "images": [
+      "the-reservoir-1.jpg",
+      "the-reservoir-2.jpg",
+      "the-reservoir-3.jpg"
+    ],
+    "total_photos_available": 10
+  },
+  {
+    "name": "Duncaster",
+    "status": "success",
+    "place_id": "ChIJJ5N1wVOq54kR2m-XM9EeqgE",
+    "address": "30 Loeffler Rd, Bloomfield, CT 06002, USA",
+    "images": [
+      "duncaster-1.jpg",
+      "duncaster-2.jpg",
+      "duncaster-3.jpg"
+    ],
+    "total_photos_available": 10
+  },
+  {
+    "name": "Seabury",
+    "status": "success",
+    "place_id": "ChIJE0tiOTVV5okR9kCa2DLL7hM",
+    "address": "200 Seabury Dr, Bloomfield, CT 06002, USA",
+    "images": [
+      "seabury-1.jpg",
+      "seabury-2.jpg",
+      "seabury-3.jpg"
+    ],
+    "total_photos_available": 10
+  },
+  {
+    "name": "The Hearth at Glastonbury",
+    "status": "success",
+    "place_id": "ChIJMbjsIp9R5okRh7a0Rd1szrc",
+    "address": "281 Western Blvd, Glastonbury, CT 06033, USA",
+    "images": [
+      "the-hearth-at-glastonbury-1.jpg",
+      "the-hearth-at-glastonbury-2.jpg",
+      "the-hearth-at-glastonbury-3.jpg"
+    ],
+    "total_photos_available": 10
+  },
+  {
+    "name": "Middlewoods of Farmington",
+    "status": "success",
+    "place_id": "ChIJi967DOat54kRpeJivusTgf8",
+    "address": "509 Middle Rd, Farmington, CT 06032, USA",
+    "images": [
+      "middlewoods-of-farmington-1.jpg",
+      "middlewoods-of-farmington-2.jpg",
+      "middlewoods-of-farmington-3.jpg"
+    ],
+    "total_photos_available": 10
+  },
+  {
+    "name": "Touchpoints at Farmington",
+    "status": "success",
+    "place_id": "ChIJzwh71cux54kR_hyyapJCwCo",
+    "address": "20 Scott Swamp Rd, Farmington, CT 06032, USA",
+    "images": [
+      "touchpoints-at-farmington-1.jpg",
+      "touchpoints-at-farmington-2.jpg",
+      "touchpoints-at-farmington-3.jpg"
+    ],
+    "total_photos_available": 10
+  },
+  {
+    "name": "Farmington Station",
+    "status": "no_photos",
+    "place_id": "ChIJxwsOmyiw54kRbjsyiKS0Xis",
+    "images": []
+  },
+  {
+    "name": "AVIVA West Hartford",
+    "status": "success",
+    "place_id": "ChIJVYzKVKWs54kRJ8rdQ9ZWUZc",
+    "address": "1 Hamilton Heights Dr, West Hartford, CT 06119, USA",
+    "images": [
+      "aviva-west-hartford-1.jpg",
+      "aviva-west-hartford-2.jpg",
+      "aviva-west-hartford-3.jpg"
+    ],
+    "total_photos_available": 10
+  },
+  {
+    "name": "Avery Heights",
+    "status": "no_photos",
+    "place_id": "ChIJ6bfov9NS5okRZ7sP5FkVd-E",
+    "images": []
+  }
+]

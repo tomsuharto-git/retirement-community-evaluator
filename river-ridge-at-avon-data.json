@@ -1,0 +1,72 @@
+{
+  "name": "River Ridge at Avon",
+  "location": "Avon, CT",
+  "address": "101 Bickford Extension, Avon, CT 06001",
+  "description": "Premier assisted living and memory care community operated by Benchmark Senior Living in Farmington Valley near Routes 202 and 44. U.S. News Best Senior Living community for both assisted living and memory care, earning Benchmark's 'Best Meals and Dining' award with 24+ years of compassionate care. Features The Harbor Program for memory-impaired residents, chef-prepared seasonal menus with cooking demonstrations, quiet grounds with expansive courtyards, serene walking paths, library, fitness room, landscaped gardens, private dining, salon, farmer's porch, gazebo social hours, and lively bistro.",
+  "community_type": "Assisted Living & Memory Care",
+  "resident_count": null,
+  "star_rating": null,
+  "monthly_cost_min": 3650,
+  "monthly_cost_max": 9386,
+  "phone": "Contact Benchmark Senior Living",
+  "website": "https://www.benchmarkseniorliving.com/senior-living/ct/avon/river-ridge-at-avon/",
+  "care_levels": [
+    "Assisted Living",
+    "Memory Care (The Harbor Program)",
+    "Nursing Home Care",
+    "Respite Care"
+  ],
+  "housing_options": [
+    "Studio Apartments",
+    "One-Bedroom Apartments",
+    "Two-Bedroom Apartments"
+  ],
+  "amenities": [
+    "Quiet Grounds with Expansive Outdoor Courtyard",
+    "Serene Walking Paths",
+    "Library",
+    "Fitness Room with Equipment",
+    "Landscaped Gardens",
+    "Wellness and Fitness Centers",
+    "Private Dining Room",
+    "Full-Service Hair Salon",
+    "Recreation Room",
+    "Farmer's Porch",
+    "Gazebo with Social Hours",
+    "Lively Bistro",
+    "Chef-Prepared Seasonal Menus",
+    "Cooking Demonstrations",
+    "The Harbor Program (Memory Care)",
+    "24-Hour Staff Availability",
+    "Transportation Services",
+    "Emergency Response Systems",
+    "Farmington Valley Location (Routes 202 & 44)",
+    "Dry Cleaning Services"
+  ],
+  "financials_summary": "River Ridge at Avon offers monthly rental pricing from $3,650-$9,386 (average $5,600) with studios starting at $5,100/month and no entrance fees, operated by Benchmark Senior Living's 28-year-established portfolio of 61 communities.",
+  "care_summary": "Recognized as a U.S. News Best Senior Living community for both assisted living and memory care, River Ridge provides 24+ years of compassionate care through Benchmark's culture of caring, featuring The Harbor Program for advanced dementia support and earning the 'Best Meals and Dining' award.",
+  "housing_summary": "The community offers studio, one-bedroom, and two-bedroom private apartments across assisted living and memory care levels, all featuring various floor plans, emergency systems, and access to quiet grounds and landscaped gardens.",
+  "community_summary": "Located in Farmington Valley near Routes 202 and 44, this Benchmark Senior Living community features quiet grounds with expansive courtyards, serene walking paths, library, fitness room, landscaped gardens, private dining, salon, recreation room, farmer's porch, gazebo social hours, lively bistro, and chef-prepared seasonal menus with cooking demonstrations.",
+  "data_confidence": {
+    "address": "verified",
+    "phone": "not_specified",
+    "pricing": "high",
+    "care_levels": "verified",
+    "amenities": "high",
+    "benchmark_ownership": "verified",
+    "awards": "verified"
+  },
+  "sources": [
+    "https://www.benchmarkseniorliving.com/senior-living/ct/avon/river-ridge-at-avon/",
+    "https://www.benchmarkseniorliving.com/river-ridge-at-avon-assisted-living/",
+    "U.S. News Best Senior Living",
+    "Seniorly",
+    "A Place for Mom (58 reviews)",
+    "Avon CT government",
+    "SeniorAdvisor",
+    "SeniorHousingNet",
+    "Assisted Living Magazine",
+    "Caring.com (29 reviews)"
+  ],
+  "notes": "Part of Benchmark Senior Living network (61 communities, 28+ years experience). U.S. News Best Senior Living for BOTH AL and MC. 'Best Meals and Dining' award with chef-prepared seasonal menus and cooking demos. 24+ years operating. The Harbor Program for advanced memory care. Multiple casual gathering venues (farmer's porch, gazebo, bistro). Quiet grounds with expansive courtyard. Private dining room available. Higher pricing tier (studios start $5,100 vs. competitors at $2,975-$4,085). Phone number not readily available. Resident count not disclosed. Exact year established approximate."
+}

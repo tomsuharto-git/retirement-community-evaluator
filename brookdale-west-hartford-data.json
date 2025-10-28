@@ -1,0 +1,68 @@
+{
+  "name": "Brookdale West Hartford",
+  "location": "West Hartford, CT",
+  "address": "22 Simsbury Road, West Hartford, CT 06117",
+  "description": "Upscale assisted living and memory care community with 70+ private, pet-friendly apartments. U.S. News Best Senior Living community for memory care, awarded #1 in Customer Satisfaction with multiple awards for memory care quality, activities/enrichment, caregiving excellence, and dining services. Features beautifully landscaped grounds, restaurant-style dining, and person-centered care with 24/7 trained staff.",
+  "community_type": "Assisted Living & Memory Care",
+  "resident_count": 70,
+  "star_rating": 4.9,
+  "monthly_cost_min": 3395,
+  "monthly_cost_max": 7125,
+  "phone": "(860) 523-9899",
+  "website": "https://www.brookdale.com/en/communities/brookdale-west-hartford.html",
+  "care_levels": [
+    "Assisted Living",
+    "Memory Care"
+  ],
+  "housing_options": [
+    "Studio Apartments (Private)",
+    "Studio with Alcove (Private)",
+    "One-Bedroom Apartments (Private)",
+    "Two-Bedroom Apartments (Private)",
+    "Shared Bedrooms (Semi-private)"
+  ],
+  "amenities": [
+    "24/7 Emergency Alert Systems",
+    "Restaurant-Style Dining Room",
+    "Beautifully Landscaped Grounds",
+    "Scenic Walking Paths",
+    "Fireside Living Room",
+    "Arts and Crafts Studio",
+    "Beauty and Barber Shop",
+    "Courtyard Gardens",
+    "Café/Bistro",
+    "Concierge Service",
+    "Transportation Services",
+    "On-Site Parking",
+    "Guest Suites",
+    "Wi-Fi Throughout Community",
+    "Postal Services",
+    "Memory Care Gardens",
+    "Daily Fitness Classes",
+    "Music Therapy Programs",
+    "Pet-Friendly Accommodations",
+    "Personal Solutions Program"
+  ],
+  "financials_summary": "Brookdale West Hartford operates on a fee-for-service rental model with no entrance fees, offering assisted living from $3,395-$7,125/month and memory care from $6,420/month, with dining and housekeeping included in the base rate but additional costs for higher care levels and optional services.",
+  "care_summary": "As a U.S. News Best Senior Living community for memory care with a 4.9-star rating, Brookdale provides 24/7 staffing with person-centered care plans, offering 6+ daily memory care programs including music therapy, gardening, and creative arts, plus customized assisted living support.",
+  "housing_summary": "The community features over 70 private, pet-friendly apartments in five configurations (studios, alcoves, one-bedroom, two-bedroom, and shared rooms), all equipped with emergency alert systems and available floor plan variations.",
+  "community_summary": "Part of Brookdale Senior Living's 47-year legacy, this West Hartford location earned #1 in Customer Satisfaction and multiple awards for memory care quality, activities/enrichment, caregiving, and dining services, featuring beautifully landscaped grounds with walking paths, a fireside lounge, arts studio, and restaurant-style dining.",
+  "data_confidence": {
+    "address": "verified",
+    "phone": "verified",
+    "pricing": "high",
+    "care_levels": "verified",
+    "amenities": "high"
+  },
+  "sources": [
+    "https://www.brookdale.com/en/communities/brookdale-west-hartford.html",
+    "U.S. News Best Senior Living",
+    "A Place for Mom (57 reviews)",
+    "Seniorly",
+    "Caring.com (21 reviews)",
+    "SeniorAdvisor",
+    "Family Assets",
+    "Assisted Living Center"
+  ],
+  "notes": "Fee-for-service model with no entrance fees. Award-winning memory care program. Some reviews mention staff turnover and hidden fees - recommend detailed cost review. Pet-friendly community. Part of nation's largest senior living provider network."
+}
