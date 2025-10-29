@@ -21,6 +21,18 @@ export interface Community {
   image_url?: string
   created_at?: string
   updated_at?: string
+
+  // Section summaries (written during research)
+  financials_summary?: string
+  care_summary?: string
+  housing_summary?: string
+  community_summary?: string
+
+  // Additional detail page fields
+  care_levels?: string[]
+  housing_options?: string[]
+  entrance_fee_min?: number
+  entrance_fee_max?: number
 }
 
 export interface MapPin {

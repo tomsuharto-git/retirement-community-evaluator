@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Star, MapPin, Clock, Users, Phone } from "lucide-react"
 import type { Community } from "@/lib/types"
 import { cn } from "@/lib/utils"
+import Link from "next/link"
 
 interface CommunityCardProps {
   community: Community
@@ -134,9 +135,11 @@ export function CommunityCard({ community, onToggleVisited, onToggleCompare, isC
           >
             {community.visited ? "Visited" : "Mark as Visited"}
           </Button>
-          <Button variant="outline" size="sm" className="flex-1 bg-transparent">
-            View Details
-          </Button>
+          <Link href={`/community/${community.id}`} className="flex-1">
+            <Button variant="outline" size="sm" className="w-full bg-transparent">
+              View Details
+            </Button>
+          </Link>
         </div>
       </CardContent>
     </Card>
