@@ -204,43 +204,47 @@ export default function HomePage() {
           onClearCompare={handleClearCompare}
         />
 
-        {/* Main Content */}
-        <div className="mb-6">
-          {/* Community Locations */}
-          <Card className="lg:sticky lg:top-6">
-            <CardHeader className="pb-3">
-              <CardTitle className="text-lg flex items-center gap-2">
-                <MapPin className="h-5 w-5" />
-                Community Locations
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <CommunityMap
-                communities={filteredCommunities}
-                selectedCommunity={selectedCommunity}
-                onCommunitySelect={setSelectedCommunity}
-                className="h-96 lg:h-[500px]"
-              />
-            </CardContent>
-          </Card>
-        </div>
+        {/* Main Content - Side by side layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* Communities List - Left Side */}
+          <div className="order-2 lg:order-1">
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-lg">Communities ({filteredCommunities.length})</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CommunityGrid
+                  communities={filteredCommunities}
+                  onToggleVisited={handleToggleVisited}
+                  onToggleCompare={handleToggleCompare}
+                  compareSelected={compareSelected}
+                  selectedCommunity={selectedCommunity}
+                  onCommunitySelect={setSelectedCommunity}
+                />
+              </CardContent>
+            </Card>
+          </div>
 
-        {/* Communities Grid */}
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-lg">Communities ({filteredCommunities.length})</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <CommunityGrid
-              communities={filteredCommunities}
-              onToggleVisited={handleToggleVisited}
-              onToggleCompare={handleToggleCompare}
-              compareSelected={compareSelected}
-              selectedCommunity={selectedCommunity}
-              onCommunitySelect={setSelectedCommunity}
-            />
-          </CardContent>
-        </Card>
+          {/* Map - Right Side */}
+          <div className="order-1 lg:order-2">
+            <Card className="lg:sticky lg:top-6">
+              <CardHeader className="pb-3">
+                <CardTitle className="text-lg flex items-center gap-2">
+                  <MapPin className="h-5 w-5" />
+                  Community Locations
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CommunityMap
+                  communities={filteredCommunities}
+                  selectedCommunity={selectedCommunity}
+                  onCommunitySelect={setSelectedCommunity}
+                  className="h-96 lg:h-[500px]"
+                />
+              </CardContent>
+            </Card>
+          </div>
+        </div>
       </main>
 
       {/* Compare Modal - Simple implementation */}
