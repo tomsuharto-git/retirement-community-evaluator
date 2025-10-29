@@ -5,10 +5,18 @@ import { useRouter } from "next/navigation"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { ArrowLeft, MapPin, Phone, Globe, DollarSign, Users, Star, Heart } from "lucide-react"
+import { ArrowLeft, MapPin, Phone, Globe, DollarSign, Users, Star, Heart, ChevronLeft, ChevronRight } from "lucide-react"
 import { ApiClient } from "@/lib/api-client"
 import type { Community } from "@/lib/types"
 import { LoadingSpinner } from "@/components/loading-spinner"
+import Image from "next/image"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
 
 interface CommunityDetailPageProps {
   params: {
@@ -22,10 +30,36 @@ export default function CommunityDetailPage({ params }: CommunityDetailPageProps
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [showAllAmenities, setShowAllAmenities] = useState(false)
+  const [communityImages, setCommunityImages] = useState<string[]>([])
 
   useEffect(() => {
     loadCommunity()
   }, [params.id])
+
+  useEffect(() => {
+    if (community) {
+      // Generate image paths based on community name
+      const slug = community.name.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "")
+
+      // Check if images exist for this community (we have images for some communities)
+      // This will be populated from the database in the future
+      const imageCount = getImageCount(slug)
+      const images = Array.from({ length: imageCount }, (_, i) =>
+        `/community-images/${slug}-${i + 1}.jpg`
+      )
+      setCommunityImages(images)
+    }
+  }, [community])
+
+  const getImageCount = (slug: string): number => {
+    // Based on the images we have
+    const imageCounts: Record<string, number> = {
+      "avery-heights": 6,
+      "aviva-west-hartford": 12,
+      "farmington-station": 8,
+    }
+    return imageCounts[slug] || 0
+  }
 
   const loadCommunity = async () => {
     try {
@@ -146,6 +180,37 @@ export default function CommunityDetailPage({ params }: CommunityDetailPageProps
       </header>
 
       <main className="container mx-auto px-4 py-6 max-w-5xl">
+        {/* Photo Gallery */}
+        {communityImages.length > 0 && (
+          <Card className="mb-6">
+            <CardContent className="p-6">
+              <Carousel className="w-full">
+                <CarouselContent>
+                  {communityImages.map((image, index) => (
+                    <CarouselItem key={index}>
+                      <div className="relative aspect-video w-full overflow-hidden rounded-lg bg-muted">
+                        <Image
+                          src={image}
+                          alt={`${community.name} - Photo ${index + 1}`}
+                          fill
+                          className="object-cover"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1000px"
+                          priority={index === 0}
+                        />
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious className="left-4" />
+                <CarouselNext className="right-4" />
+              </Carousel>
+              <div className="text-center text-sm text-muted-foreground mt-2">
+                {communityImages.length} {communityImages.length === 1 ? "photo" : "photos"}
+              </div>
+            </CardContent>
+          </Card>
+        )}
+
         {/* Overview Card */}
         <Card className="mb-6">
           <CardHeader>

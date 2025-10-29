@@ -33,6 +33,7 @@ export interface Community {
   housing_options?: string[]
   entrance_fee_min?: number
   entrance_fee_max?: number
+  images?: string[]
 }
 
 export interface MapPin {
