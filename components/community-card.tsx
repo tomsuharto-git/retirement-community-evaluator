@@ -46,8 +46,8 @@ export function CommunityCard({ community, onToggleVisited, onToggleCompare, isC
 
   return (
     <Card className={cn("transition-all duration-200 hover:shadow-md", isCompareSelected && "ring-2 ring-blue-500")}>
-      <CardContent className="p-6">
-        <div className="flex items-start justify-between mb-4">
+      <CardContent className="p-4">
+        <div className="flex items-start justify-between mb-3">
           <div className="flex-1">
             <h3 className="font-semibold text-lg text-foreground mb-1">{community.name}</h3>
             <div className="flex items-center text-muted-foreground text-sm mb-2">
@@ -70,7 +70,7 @@ export function CommunityCard({ community, onToggleVisited, onToggleCompare, isC
           </Button>
         </div>
 
-        <div className="grid grid-cols-2 gap-4 mb-4">
+        <div className="grid grid-cols-2 gap-4 mb-3">
           {community.distance_miles && (
             <div className="flex items-center text-sm text-muted-foreground">
               <MapPin className="h-4 w-4 mr-1" />
@@ -109,7 +109,7 @@ export function CommunityCard({ community, onToggleVisited, onToggleCompare, isC
         </div>
 
         {community.amenities && community.amenities.length > 0 && (
-          <div className="mb-4">
+          <div className="mb-3">
             <div className="flex flex-wrap gap-1">
               {community.amenities.slice(0, 3).map((amenity, index) => (
                 <Badge key={index} variant="outline" className="text-xs">
