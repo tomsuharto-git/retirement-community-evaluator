@@ -50,7 +50,11 @@ export function CommunityCard({ community, onToggleVisited, onToggleCompare, isC
       <CardContent className="p-4">
         <div className="flex items-start justify-between mb-3">
           <div className="flex-1">
-            <h3 className="font-semibold text-lg text-foreground mb-1">{community.name}</h3>
+            <Link href={`/community/${community.id}`}>
+              <h3 className="font-semibold text-lg text-foreground mb-1 hover:text-primary hover:underline cursor-pointer transition-colors">
+                {community.name}
+              </h3>
+            </Link>
             <div className="flex items-center text-muted-foreground text-sm mb-2">
               <MapPin className="h-4 w-4 mr-1" />
               {community.location}
@@ -135,11 +139,6 @@ export function CommunityCard({ community, onToggleVisited, onToggleCompare, isC
           >
             {community.visited ? "Visited" : "Mark as Visited"}
           </Button>
-          <Link href={`/community/${community.id}`} className="flex-1">
-            <Button variant="outline" size="sm" className="w-full bg-transparent">
-              View Details
-            </Button>
-          </Link>
         </div>
       </CardContent>
     </Card>

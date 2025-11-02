@@ -34,6 +34,17 @@ export interface Community {
   entrance_fee_min?: number
   entrance_fee_max?: number
   images?: string[]
+
+  // Review fields
+  review_first_year_rating?: number
+  review_affordability_rating?: number
+  review_care_rating?: number
+  review_housing_rating?: number
+  review_community_rating?: number
+  review_overall_rating?: number
+  review_pros?: string
+  review_cons?: string
+  review_notes?: string
 }
 
 export interface MapPin {
