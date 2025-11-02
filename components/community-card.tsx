@@ -46,7 +46,7 @@ export function CommunityCard({ community, onToggleVisited }: CommunityCardProps
 
   return (
     <Card className="transition-all duration-200 hover:shadow-md">
-      <CardContent className="px-4 pt-3 pb-4">
+      <CardContent className="px-4 pt-2 pb-3">
         <div className="flex items-start justify-between mb-3">
           <div className="flex-1">
             <div className="flex items-center justify-between gap-3 mb-1">
