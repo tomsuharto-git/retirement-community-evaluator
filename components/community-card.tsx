@@ -76,7 +76,7 @@ export function CommunityCard({ community, onToggleVisited }: CommunityCardProps
               {community.location}
             </div>
             {community.community_type && (
-              <Badge variant="secondary" className="mb-2">
+              <Badge variant="outline" className="mb-2 bg-transparent">
                 {community.community_type}
               </Badge>
             )}
