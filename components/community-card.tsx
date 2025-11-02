@@ -45,31 +45,32 @@ export function CommunityCard({ community, onToggleVisited }: CommunityCardProps
   }
 
   return (
-    <Card className="transition-all duration-200 hover:shadow-md relative">
+    <Card className="transition-all duration-200 hover:shadow-md">
       <CardContent className="p-4">
-        {/* Visited Toggle - Top Right */}
-        <div className="absolute top-3 right-3 flex items-center gap-2 z-10">
-          <label
-            htmlFor={`visited-${community.id}`}
-            className="text-sm font-medium cursor-pointer"
-          >
-            Visited
-          </label>
-          <Switch
-            id={`visited-${community.id}`}
-            checked={community.visited}
-            onCheckedChange={() => onToggleVisited(community.id)}
-            className="data-[state=checked]:bg-green-500"
-          />
-        </div>
-
-        <div className="flex items-start justify-between mb-3 pr-32">
+        <div className="flex items-start justify-between mb-3">
           <div className="flex-1">
-            <Link href={`/community/${community.id}`}>
-              <h3 className="font-semibold text-lg text-foreground mb-1 hover:text-primary hover:underline cursor-pointer transition-colors">
-                {community.name}
-              </h3>
-            </Link>
+            <div className="flex items-center justify-between gap-3 mb-1">
+              <Link href={`/community/${community.id}`} className="flex-1">
+                <h3 className="font-semibold text-lg text-foreground hover:text-primary hover:underline cursor-pointer transition-colors">
+                  {community.name}
+                </h3>
+              </Link>
+              {/* Visited Toggle - Same line as name */}
+              <div className="flex items-center gap-2 shrink-0">
+                <label
+                  htmlFor={`visited-${community.id}`}
+                  className="text-sm font-medium cursor-pointer"
+                >
+                  Visited
+                </label>
+                <Switch
+                  id={`visited-${community.id}`}
+                  checked={community.visited}
+                  onCheckedChange={() => onToggleVisited(community.id)}
+                  className="data-[state=checked]:bg-green-500"
+                />
+              </div>
+            </div>
             <div className="flex items-center text-muted-foreground text-sm mb-2">
               <MapPin className="h-4 w-4 mr-1" />
               {community.location}
