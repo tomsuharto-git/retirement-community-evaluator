@@ -6,8 +6,6 @@ import { CommunityCard } from "./community-card"
 interface CommunityGridProps {
   communities: Community[]
   onToggleVisited: (id: string) => void
-  onToggleCompare: (id: string) => void
-  compareSelected: string[]
   selectedCommunity?: string
   onCommunitySelect: (id: string) => void
 }
@@ -15,8 +13,6 @@ interface CommunityGridProps {
 export function CommunityGrid({
   communities,
   onToggleVisited,
-  onToggleCompare,
-  compareSelected,
   selectedCommunity,
   onCommunitySelect,
 }: CommunityGridProps) {
@@ -36,8 +32,6 @@ export function CommunityGrid({
           <CommunityCard
             community={community}
             onToggleVisited={onToggleVisited}
-            onToggleCompare={onToggleCompare}
-            isCompareSelected={compareSelected.includes(community.id)}
           />
         </div>
       ))}

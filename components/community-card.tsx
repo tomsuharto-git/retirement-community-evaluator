@@ -3,7 +3,7 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Star, MapPin, Clock, Users, Phone } from "lucide-react"
+import { Star, MapPin, Clock, Users, Phone, Heart } from "lucide-react"
 import type { Community } from "@/lib/types"
 import { cn } from "@/lib/utils"
 import Link from "next/link"
@@ -11,11 +11,9 @@ import Link from "next/link"
 interface CommunityCardProps {
   community: Community
   onToggleVisited: (id: string) => void
-  onToggleCompare: (id: string) => void
-  isCompareSelected: boolean
 }
 
-export function CommunityCard({ community, onToggleVisited, onToggleCompare, isCompareSelected }: CommunityCardProps) {
+export function CommunityCard({ community, onToggleVisited }: CommunityCardProps) {
   const formatCost = (min?: number, max?: number) => {
     if (!min && !max) return "Contact for pricing"
     if (min && max) return `$${min.toLocaleString()} - $${max.toLocaleString()}/mo`
@@ -46,9 +44,28 @@ export function CommunityCard({ community, onToggleVisited, onToggleCompare, isC
   }
 
   return (
-    <Card className={cn("transition-all duration-200 hover:shadow-md", isCompareSelected && "ring-2 ring-blue-500")}>
+    <Card className="transition-all duration-200 hover:shadow-md relative">
       <CardContent className="p-4">
-        <div className="flex items-start justify-between mb-3">
+        {/* Visited Toggle - Top Right */}
+        <button
+          onClick={(e) => {
+            e.preventDefault()
+            e.stopPropagation()
+            onToggleVisited(community.id)
+          }}
+          className={cn(
+            "absolute top-3 right-3 p-2 rounded-full transition-all duration-200 z-10",
+            "hover:bg-accent hover:scale-110",
+            community.visited
+              ? "text-red-500"
+              : "text-muted-foreground hover:text-red-500"
+          )}
+          aria-label={community.visited ? "Mark as not visited" : "Mark as visited"}
+        >
+          <Heart className={cn("h-5 w-5", community.visited && "fill-current")} />
+        </button>
+
+        <div className="flex items-start justify-between mb-3 pr-10">
           <div className="flex-1">
             <Link href={`/community/${community.id}`}>
               <h3 className="font-semibold text-lg text-foreground mb-1 hover:text-primary hover:underline cursor-pointer transition-colors">
@@ -65,14 +82,6 @@ export function CommunityCard({ community, onToggleVisited, onToggleCompare, isC
               </Badge>
             )}
           </div>
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={() => onToggleCompare(community.id)}
-            className={cn("ml-2", isCompareSelected && "bg-blue-50 border-blue-500 text-blue-700")}
-          >
-            {isCompareSelected ? "Remove" : "Compare"}
-          </Button>
         </div>
 
         <div className="grid grid-cols-2 gap-4 mb-3">
@@ -114,7 +123,7 @@ export function CommunityCard({ community, onToggleVisited, onToggleCompare, isC
         </div>
 
         {community.amenities && community.amenities.length > 0 && (
-          <div className="mb-3">
+          <div>
             <div className="flex flex-wrap gap-1">
               {community.amenities.slice(0, 3).map((amenity, index) => (
                 <Badge key={index} variant="outline" className="text-xs">
@@ -129,17 +138,6 @@ export function CommunityCard({ community, onToggleVisited, onToggleCompare, isC
             </div>
           </div>
         )}
-
-        <div className="flex gap-2">
-          <Button
-            variant={community.visited ? "default" : "outline"}
-            size="sm"
-            onClick={() => onToggleVisited(community.id)}
-            className="flex-1"
-          >
-            {community.visited ? "Visited" : "Mark as Visited"}
-          </Button>
-        </div>
       </CardContent>
     </Card>
   )
