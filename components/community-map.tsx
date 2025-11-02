@@ -166,9 +166,9 @@ export function CommunityMap({ communities, selectedCommunity, onCommunitySelect
     }
   }, [map, communities, onCommunitySelect])
 
-  // Highlight selected community
+  // Highlight selected community and manage info windows
   useEffect(() => {
-    if (!selectedCommunity || !markers.length || !window.google) return
+    if (!markers.length || !window.google) return
 
     markers.forEach((marker, index) => {
       const community = communities[index]
@@ -183,9 +183,11 @@ export function CommunityMap({ communities, selectedCommunity, onCommunitySelect
         strokeWeight: isSelected ? 3 : 2,
       })
 
-      // Open info window for selected community
+      // Open info window for selected community, close for others
       if (isSelected) {
         marker.infoWindow?.open(map, marker)
+      } else {
+        marker.infoWindow?.close()
       }
     })
   }, [selectedCommunity, markers, communities, map])
