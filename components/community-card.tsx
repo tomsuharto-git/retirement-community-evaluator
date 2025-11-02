@@ -59,6 +59,7 @@ export function CommunityCard({ community, onToggleVisited }: CommunityCardProps
             id={`visited-${community.id}`}
             checked={community.visited}
             onCheckedChange={() => onToggleVisited(community.id)}
+            className="data-[state=checked]:bg-green-500"
           />
         </div>
 
