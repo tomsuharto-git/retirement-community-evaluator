@@ -50,7 +50,11 @@ export function CommunityCard({ community, onToggleVisited }: CommunityCardProps
       <CardContent className="p-4">
         <div className="flex items-start justify-between mb-3">
           <div className="flex-1">
-            <h3 className="font-semibold text-lg text-foreground mb-1">{community.name}</h3>
+            <Link href={`/community/${community.id}`}>
+              <h3 className="font-semibold text-lg text-foreground mb-1 hover:text-primary transition-colors cursor-pointer">
+                {community.name}
+              </h3>
+            </Link>
             {community.community_type && (
               <Badge variant="secondary" className="mb-2">
                 {community.community_type}
@@ -115,7 +119,7 @@ export function CommunityCard({ community, onToggleVisited }: CommunityCardProps
         </div>
 
         {community.amenities && community.amenities.length > 0 && (
-          <div className="mb-3">
+          <div>
             <div className="flex flex-wrap gap-1">
               {community.amenities.slice(0, 3).map((amenity, index) => (
                 <Badge key={index} variant="outline" className="text-xs">
@@ -130,14 +134,6 @@ export function CommunityCard({ community, onToggleVisited }: CommunityCardProps
             </div>
           </div>
         )}
-
-        <div className="flex gap-2">
-          <Link href={`/community/${community.id}`} className="w-full">
-            <Button variant="outline" size="sm" className="w-full bg-transparent">
-              View Details
-            </Button>
-          </Link>
-        </div>
       </CardContent>
     </Card>
   )
