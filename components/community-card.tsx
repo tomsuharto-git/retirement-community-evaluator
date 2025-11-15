@@ -121,10 +121,10 @@ export function CommunityCard({ community, onToggleVisited }: CommunityCardProps
           )}
         </div>
 
-        {community.star_rating && (
+        {community.review_overall_rating && (
           <div className="flex items-center mb-3">
-            <div className="flex mr-2">{renderStars(community.star_rating)}</div>
-            <span className="text-sm text-muted-foreground">{community.star_rating}</span>
+            <div className="flex mr-2">{renderStars(community.review_overall_rating)}</div>
+            <span className="text-sm text-muted-foreground">{community.review_overall_rating}</span>
           </div>
         )}
 
