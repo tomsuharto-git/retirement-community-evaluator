@@ -45,58 +45,16 @@ export function CommunityRatingsSummary({ community }: CommunityRatingsSummaryPr
     return stars
   }
 
-  // Calculate average review rating if available
-  const reviewRating = community.review_overall_rating || 0
-  const seniorlyRating = 9.5 // This would come from external API or database
+  // Get ratings from community data
+  const googleRating = community.google_rating || community.star_rating || 0
+  const seniorlyRating = community.seniorly_rating || 0
 
   return (
     <Card>
       <CardContent className="p-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Reviews Section */}
-          <div className="space-y-3">
-            <h3 className="text-lg font-semibold text-foreground">Reviews</h3>
-            <div className="flex items-center gap-3">
-              <div className="flex gap-1">
-                {renderStars(reviewRating)}
-              </div>
-              <div className="flex flex-col">
-                <span className="text-2xl font-bold text-foreground">
-                  {reviewRating > 0 ? reviewRating.toFixed(1) : "—"}
-                </span>
-                <span className="text-sm text-muted-foreground">/5</span>
-              </div>
-            </div>
-            {community.review_overall_rating && (
-              <p className="text-sm text-muted-foreground">
-                Based on your personal review
-              </p>
-            )}
-            {!community.review_overall_rating && (
-              <p className="text-sm text-muted-foreground italic">
-                No reviews yet
-              </p>
-            )}
-          </div>
-
-          {/* Seniorly Rating Section */}
-          <div className="space-y-3">
-            <h3 className="text-lg font-semibold text-foreground">Seniorly Rating</h3>
-            <div className="flex items-baseline gap-2">
-              <span className="text-5xl font-bold text-foreground">
-                {seniorlyRating}
-              </span>
-              <span className="text-2xl text-muted-foreground">/10</span>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              Based on community ratings
-            </p>
-          </div>
-        </div>
-
         {/* Community Description */}
         {community.description && (
-          <div className="mt-6 pt-6 border-t">
+          <div className="mb-6">
             <p className="text-sm text-muted-foreground leading-relaxed">
               {community.description}
             </p>
@@ -104,7 +62,7 @@ export function CommunityRatingsSummary({ community }: CommunityRatingsSummaryPr
         )}
 
         {/* Additional Information */}
-        <div className="mt-6 pt-6 border-t space-y-3">
+        <div className="space-y-3 pb-6 border-b">
           {/* Resident Count */}
           {community.resident_count && (
             <div className="flex items-center justify-between">
@@ -160,6 +118,51 @@ export function CommunityRatingsSummary({ community }: CommunityRatingsSummaryPr
               </div>
             </div>
           )}
+        </div>
+
+        {/* Ratings Section */}
+        <div className="mt-6 pt-6 border-t">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Google Reviews Section */}
+            <div className="space-y-3">
+              <h3 className="text-lg font-semibold text-foreground">Google Reviews</h3>
+              <div className="flex items-center gap-3">
+                <div className="flex gap-1">
+                  {renderStars(googleRating)}
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-2xl font-bold text-foreground">
+                    {googleRating > 0 ? googleRating.toFixed(1) : "—"}
+                  </span>
+                  <span className="text-sm text-muted-foreground">/5</span>
+                </div>
+              </div>
+              {googleRating > 0 && (
+                <p className="text-sm text-muted-foreground">
+                  Based on Google Maps reviews
+                </p>
+              )}
+              {googleRating === 0 && (
+                <p className="text-sm text-muted-foreground italic">
+                  No Google reviews available
+                </p>
+              )}
+            </div>
+
+            {/* Seniorly Rating Section */}
+            <div className="space-y-3">
+              <h3 className="text-lg font-semibold text-foreground">Seniorly Rating</h3>
+              <div className="flex items-baseline gap-2">
+                <span className="text-5xl font-bold text-foreground">
+                  {seniorlyRating}
+                </span>
+                <span className="text-2xl text-muted-foreground">/10</span>
+              </div>
+              <p className="text-sm text-muted-foreground">
+                Based on community ratings
+              </p>
+            </div>
+          </div>
         </div>
       </CardContent>
     </Card>

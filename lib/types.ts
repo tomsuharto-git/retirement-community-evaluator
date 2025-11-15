@@ -8,6 +8,8 @@ export interface Community {
   distance_miles?: number
   drive_time_minutes?: number
   star_rating?: number
+  google_rating?: number
+  seniorly_rating?: number
   resident_count?: number
   visited: boolean
   compare_selected: boolean
