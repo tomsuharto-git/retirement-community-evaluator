@@ -32,10 +32,8 @@ export function CommunityGrid({
       {communities.map((community) => (
         <div
           key={community.id}
-          onClick={() => onCommunitySelect(community.id)}
           onMouseEnter={() => onCommunityHover(community.id)}
           onMouseLeave={() => onCommunityHover(undefined)}
-          className="cursor-pointer"
         >
           <CommunityCard
             community={community}
