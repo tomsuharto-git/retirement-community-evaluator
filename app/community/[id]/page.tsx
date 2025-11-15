@@ -276,10 +276,10 @@ export default function CommunityDetailPage({ params }: CommunityDetailPageProps
 
         {/* Housing Options Section */}
         {community.housing_options && community.housing_options.length > 0 && (
-          <Card className="mb-6 border-l-4 border-l-[#F97316]">
+          <Card className="mb-6 border-l-4 border-l-[#EF4444]">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Home className="h-5 w-5 text-[#F97316]" />
+                <Home className="h-5 w-5 text-[#EF4444]" />
                 Housing
               </CardTitle>
             </CardHeader>
@@ -291,7 +291,7 @@ export default function CommunityDetailPage({ params }: CommunityDetailPageProps
                 <h3 className="font-semibold text-sm">Available Housing Options</h3>
                 <div className="flex flex-wrap gap-2">
                   {community.housing_options.map((option, index) => (
-                    <Badge key={index} className="text-sm bg-[#F97316] hover:bg-[#EA580C]">
+                    <Badge key={index} className="text-sm bg-[#EF4444] hover:bg-[#DC2626]">
                       {option}
                     </Badge>
                   ))}
