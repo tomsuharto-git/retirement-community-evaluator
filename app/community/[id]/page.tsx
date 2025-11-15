@@ -227,16 +227,6 @@ export default function CommunityDetailPage({ params }: CommunityDetailPageProps
                 </div>
               )}
 
-              {community.star_rating && (
-                <div>
-                  <div className="text-sm text-muted-foreground mb-1">Rating</div>
-                  <div className="flex items-center gap-2">
-                    <div className="flex">{renderStars(community.star_rating)}</div>
-                    <span className="text-sm font-medium">{community.star_rating}</span>
-                  </div>
-                </div>
-              )}
-
               {(community.distance_miles || community.drive_time_minutes) && (
                 <div>
                   <div className="text-sm text-muted-foreground mb-1">Distance</div>
