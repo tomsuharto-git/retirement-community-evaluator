@@ -28,12 +28,7 @@ export function CommunityGrid({
   return (
     <div className="flex flex-col gap-4">
       {communities.map((community) => (
-        <div
-          key={community.id}
-          onMouseEnter={() => onCommunitySelect(community.id)}
-          onMouseLeave={() => onCommunitySelect("")}
-          className="cursor-pointer"
-        >
+        <div key={community.id} onClick={() => onCommunitySelect(community.id)} className="cursor-pointer">
           <CommunityCard
             community={community}
             onToggleVisited={onToggleVisited}

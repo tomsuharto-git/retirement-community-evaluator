@@ -3,7 +3,6 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Switch } from "@/components/ui/switch"
 import { Star, MapPin, Clock, Users, Phone } from "lucide-react"
 import type { Community } from "@/lib/types"
 import { cn } from "@/lib/utils"
@@ -45,42 +44,29 @@ export function CommunityCard({ community, onToggleVisited }: CommunityCardProps
   }
 
   return (
-    <Card className="transition-all duration-200 hover:shadow-md hover:bg-[#F2F0EF]">
-      <CardContent className="px-4 pt-2 pb-3">
+    <Card className={cn("transition-all duration-200 hover:shadow-md", isCompareSelected && "ring-2 ring-blue-500")}>
+      <CardContent className="p-4">
         <div className="flex items-start justify-between mb-3">
           <div className="flex-1">
-            <div className="flex items-center justify-between gap-3 mb-1">
-              <Link href={`/community/${community.id}`} className="flex-1">
-                <h3 className="font-semibold text-lg text-foreground hover:text-primary hover:underline cursor-pointer transition-colors">
-                  {community.name}
-                </h3>
-              </Link>
-              {/* Visited Toggle - Same line as name */}
-              <div className="flex items-center gap-2 shrink-0">
-                <label
-                  htmlFor={`visited-${community.id}`}
-                  className="text-sm font-medium cursor-pointer"
-                >
-                  Visited
-                </label>
-                <Switch
-                  id={`visited-${community.id}`}
-                  checked={community.visited}
-                  onCheckedChange={() => onToggleVisited(community.id)}
-                  className="data-[state=checked]:bg-green-500"
-                />
-              </div>
-            </div>
+            <h3 className="font-semibold text-lg text-foreground mb-1">{community.name}</h3>
             <div className="flex items-center text-muted-foreground text-sm mb-2">
               <MapPin className="h-4 w-4 mr-1" />
               {community.location}
             </div>
             {community.community_type && (
-              <Badge variant="outline" className="mb-2 bg-transparent">
+              <Badge variant="secondary" className="mb-2">
                 {community.community_type}
               </Badge>
             )}
           </div>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => onToggleCompare(community.id)}
+            className={cn("ml-2", isCompareSelected && "bg-blue-50 border-blue-500 text-blue-700")}
+          >
+            {isCompareSelected ? "Remove" : "Compare"}
+          </Button>
         </div>
 
         <div className="grid grid-cols-2 gap-4 mb-3">
@@ -122,7 +108,7 @@ export function CommunityCard({ community, onToggleVisited }: CommunityCardProps
         </div>
 
         {community.amenities && community.amenities.length > 0 && (
-          <div>
+          <div className="mb-3">
             <div className="flex flex-wrap gap-1">
               {community.amenities.slice(0, 3).map((amenity, index) => (
                 <Badge key={index} variant="outline" className="text-xs">
@@ -137,6 +123,22 @@ export function CommunityCard({ community, onToggleVisited }: CommunityCardProps
             </div>
           </div>
         )}
+
+        <div className="flex gap-2">
+          <Button
+            variant={community.visited ? "default" : "outline"}
+            size="sm"
+            onClick={() => onToggleVisited(community.id)}
+            className="flex-1"
+          >
+            {community.visited ? "Visited" : "Mark as Visited"}
+          </Button>
+          <Link href={`/community/${community.id}`} className="flex-1">
+            <Button variant="outline" size="sm" className="w-full bg-transparent">
+              View Details
+            </Button>
+          </Link>
+        </div>
       </CardContent>
     </Card>
   )

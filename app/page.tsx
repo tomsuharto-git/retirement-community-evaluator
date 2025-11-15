@@ -20,8 +20,6 @@ export default function HomePage() {
   const [error, setError] = useState<string | null>(null)
   const [searchQuery, setSearchQuery] = useState("")
   const [selectedCommunity, setSelectedCommunity] = useState<string>()
-  const [compareSelected, setCompareSelected] = useState<string[]>([])
-  const [showCompareModal, setShowCompareModal] = useState(false)
   const [filters, setFilters] = useState<FilterOptions>({
     visited: "all",
     sortBy: "distance",
@@ -79,10 +77,6 @@ export default function HomePage() {
       setError(null)
       const data = await ApiClient.getCommunities()
       setCommunities(data)
-
-      // Set initial compare selected from database
-      const compareIds = data.filter((c) => c.compare_selected).map((c) => c.id)
-      setCompareSelected(compareIds)
     } catch (err) {
       setError("Failed to load communities. Please try again.")
       console.error("Error loading communities:", err)
@@ -100,41 +94,6 @@ export default function HomePage() {
       setCommunities((prev) => prev.map((c) => (c.id === id ? updated : c)))
     } catch (err) {
       console.error("Error toggling visited status:", err)
-    }
-  }
-
-  const handleToggleCompare = async (id: string) => {
-    try {
-      const isSelected = compareSelected.includes(id)
-      const newSelected = isSelected ? compareSelected.filter((cid) => cid !== id) : [...compareSelected, id]
-
-      // Update local state immediately for better UX
-      setCompareSelected(newSelected)
-
-      // Update database
-      await ApiClient.toggleCompare(id, !isSelected)
-
-      // Update communities state
-      setCommunities((prev) => prev.map((c) => (c.id === id ? { ...c, compare_selected: !isSelected } : c)))
-    } catch (err) {
-      console.error("Error toggling compare status:", err)
-      // Revert local state on error
-      setCompareSelected((prev) => (prev.includes(id) ? prev.filter((cid) => cid !== id) : [...prev, id]))
-    }
-  }
-
-  const handleCompare = () => {
-    setShowCompareModal(true)
-  }
-
-  const handleClearCompare = async () => {
-    try {
-      // Clear all compare selections
-      await Promise.all(compareSelected.map((id) => ApiClient.toggleCompare(id, false)))
-      setCompareSelected([])
-      setCommunities((prev) => prev.map((c) => ({ ...c, compare_selected: false })))
-    } catch (err) {
-      console.error("Error clearing compare selections:", err)
     }
   }
 
@@ -199,9 +158,6 @@ export default function HomePage() {
           onSearchChange={setSearchQuery}
           filters={filters}
           onFiltersChange={setFilters}
-          compareCount={compareSelected.length}
-          onCompare={handleCompare}
-          onClearCompare={handleClearCompare}
         />
 
         {/* Main Content - Side by side layout */}
@@ -216,8 +172,6 @@ export default function HomePage() {
                 <CommunityGrid
                   communities={filteredCommunities}
                   onToggleVisited={handleToggleVisited}
-                  onToggleCompare={handleToggleCompare}
-                  compareSelected={compareSelected}
                   selectedCommunity={selectedCommunity}
                   onCommunitySelect={setSelectedCommunity}
                 />
@@ -246,43 +200,6 @@ export default function HomePage() {
           </div>
         </div>
       </main>
-
-      {/* Compare Modal - Simple implementation */}
-      {showCompareModal && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
-          <Card className="w-full max-w-4xl max-h-[80vh] overflow-auto">
-            <CardHeader>
-              <CardTitle>Compare Communities</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {compareSelected.map((id) => {
-                  const community = communities.find((c) => c.id === id)
-                  if (!community) return null
-
-                  return (
-                    <div key={id} className="border rounded-lg p-4">
-                      <h3 className="font-semibold mb-2">{community.name}</h3>
-                      <div className="space-y-1 text-sm">
-                        <div>Location: {community.location}</div>
-                        <div>Rating: {community.star_rating || "N/A"}</div>
-                        <div>Distance: {community.distance_miles || "N/A"} miles</div>
-                        <div>Residents: {community.resident_count || "N/A"}</div>
-                        <div>Type: {community.community_type || "N/A"}</div>
-                      </div>
-                    </div>
-                  )
-                })}
-              </div>
-              <div className="flex justify-end gap-2 mt-6">
-                <Button variant="outline" onClick={() => setShowCompareModal(false)}>
-                  Close
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-      )}
     </div>
   )
 }

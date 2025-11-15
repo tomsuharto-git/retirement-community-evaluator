@@ -2,9 +2,8 @@
 
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Search, X } from "lucide-react"
+import { Search } from "lucide-react"
 import type { FilterOptions } from "@/lib/types"
 
 interface SearchFiltersProps {
@@ -12,9 +11,6 @@ interface SearchFiltersProps {
   onSearchChange: (query: string) => void
   filters: FilterOptions
   onFiltersChange: (filters: FilterOptions) => void
-  compareCount: number
-  onCompare: () => void
-  onClearCompare: () => void
 }
 
 export function SearchFilters({
@@ -22,9 +18,6 @@ export function SearchFilters({
   onSearchChange,
   filters,
   onFiltersChange,
-  compareCount,
-  onCompare,
-  onClearCompare,
 }: SearchFiltersProps) {
   const visitedOptions = [
     { value: "all", label: "All" },
@@ -85,21 +78,6 @@ export function SearchFilters({
               ))}
             </SelectContent>
           </Select>
-
-          {/* Compare Button */}
-          {compareCount > 0 && (
-            <div className="flex items-center gap-2">
-              <Badge variant="secondary" className="px-2 py-1">
-                {compareCount} selected
-              </Badge>
-              <Button size="sm" onClick={onCompare} disabled={compareCount === 0}>
-                Compare
-              </Button>
-              <Button variant="outline" size="sm" onClick={onClearCompare}>
-                <X className="h-4 w-4" />
-              </Button>
-            </div>
-          )}
         </div>
       </div>
     </div>
