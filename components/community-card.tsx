@@ -51,7 +51,7 @@ export function CommunityCard({ community, onToggleVisited }: CommunityCardProps
         <div className="flex items-start justify-between mb-3">
           <div className="flex-1">
             <Link href={`/community/${community.id}`}>
-              <h3 className="font-semibold text-lg text-foreground mb-1 hover:text-primary transition-colors cursor-pointer">
+              <h3 className="font-semibold text-lg text-foreground mb-1 hover:text-blue-600 dark:hover:text-blue-400 hover:underline transition-colors cursor-pointer">
                 {community.name}
               </h3>
             </Link>
