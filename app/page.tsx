@@ -128,9 +128,9 @@ export default function HomePage() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="border-b bg-card">
+    <div className="flex flex-col h-screen bg-background">
+      {/* Header - Fixed */}
+      <header className="border-b bg-card flex-shrink-0">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -152,21 +152,24 @@ export default function HomePage() {
         </div>
       </header>
 
-      <main className="container mx-auto px-4 py-6">
-        {/* Search and Filters */}
+      {/* Search Filters - Fixed */}
+      <div className="container mx-auto px-4 pt-6 flex-shrink-0">
         <SearchFilters
           searchQuery={searchQuery}
           onSearchChange={setSearchQuery}
           filters={filters}
           onFiltersChange={setFilters}
         />
+      </div>
 
+      {/* Main Content - Flexible area */}
+      <main className="container mx-auto px-4 pb-6 flex-1 overflow-hidden">
         {/* Main Content - Side by side layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {/* Communities List - Left Side */}
-          <div className="order-2 lg:order-1">
-            <Card>
-              <CardHeader>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 h-full">
+          {/* Communities List - Left Side - Scrollable */}
+          <div className="order-2 lg:order-1 overflow-y-auto">
+            <Card className="h-full">
+              <CardHeader className="sticky top-0 bg-card z-10">
                 <CardTitle className="text-lg">Communities ({filteredCommunities.length})</CardTitle>
               </CardHeader>
               <CardContent>
@@ -181,22 +184,22 @@ export default function HomePage() {
             </Card>
           </div>
 
-          {/* Map - Right Side */}
+          {/* Map - Right Side - Fixed */}
           <div className="order-1 lg:order-2">
-            <Card className="lg:sticky lg:top-6">
+            <Card className="h-full">
               <CardHeader className="pb-3">
                 <CardTitle className="text-lg flex items-center gap-2">
                   <MapPin className="h-5 w-5" />
                   Community Locations
                 </CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="h-[calc(100%-4rem)]">
                 <CommunityMap
                   communities={filteredCommunities}
                   selectedCommunity={selectedCommunity}
                   hoveredCommunity={hoveredCommunity}
                   onCommunitySelect={setSelectedCommunity}
-                  className="h-96 lg:h-[500px]"
+                  className="h-full"
                 />
               </CardContent>
             </Card>
