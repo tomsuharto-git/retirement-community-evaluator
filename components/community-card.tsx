@@ -58,9 +58,13 @@ export function CommunityCard({ community, onToggleVisited }: CommunityCardProps
         </div>
 
         <div className="grid grid-cols-2 gap-4 mb-3">
+          <div className="flex items-center text-muted-foreground text-sm">
+            <MapPin className="h-4 w-4 mr-1 flex-shrink-0" />
+            {community.location}
+          </div>
           {(community.distance_miles || community.drive_time_minutes) && (
-            <div className="flex items-center text-sm text-muted-foreground col-span-2">
-              <MapPin className="h-4 w-4 mr-1 flex-shrink-0" />
+            <div className="flex items-center text-sm text-muted-foreground">
+              <Clock className="h-4 w-4 mr-1 flex-shrink-0" />
               {community.distance_miles && community.drive_time_minutes ? (
                 <span>{community.distance_miles} miles & {community.drive_time_minutes} minutes from Blodgett's</span>
               ) : community.distance_miles ? (
@@ -70,12 +74,8 @@ export function CommunityCard({ community, onToggleVisited }: CommunityCardProps
               )}
             </div>
           )}
-          <div className="flex items-center text-muted-foreground text-sm">
-            <MapPin className="h-4 w-4 mr-1 flex-shrink-0" />
-            {community.location}
-          </div>
           {community.resident_count && (
-            <div className="flex items-center text-sm text-muted-foreground">
+            <div className="flex items-center text-sm text-muted-foreground col-start-2">
               <Users className="h-4 w-4 mr-1" />
               {community.resident_count} residents
             </div>
