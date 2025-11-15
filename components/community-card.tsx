@@ -49,10 +49,6 @@ export function CommunityCard({ community, onToggleVisited }: CommunityCardProps
         <div className="flex items-start justify-between mb-3">
           <div className="flex-1">
             <h3 className="font-semibold text-lg text-foreground mb-1">{community.name}</h3>
-            <div className="flex items-center text-muted-foreground text-sm mb-2">
-              <MapPin className="h-4 w-4 mr-1" />
-              {community.location}
-            </div>
             {community.community_type && (
               <Badge variant="secondary" className="mb-2">
                 {community.community_type}
@@ -62,18 +58,22 @@ export function CommunityCard({ community, onToggleVisited }: CommunityCardProps
         </div>
 
         <div className="grid grid-cols-2 gap-4 mb-3">
-          {community.distance_miles && (
-            <div className="flex items-center text-sm text-muted-foreground">
-              <MapPin className="h-4 w-4 mr-1" />
-              {community.distance_miles} miles
+          {(community.distance_miles || community.drive_time_minutes) && (
+            <div className="flex items-center text-sm text-muted-foreground col-span-2">
+              <MapPin className="h-4 w-4 mr-1 flex-shrink-0" />
+              {community.distance_miles && community.drive_time_minutes ? (
+                <span>{community.distance_miles} miles & {community.drive_time_minutes} minutes from Blodgett's</span>
+              ) : community.distance_miles ? (
+                <span>{community.distance_miles} miles from Blodgett's</span>
+              ) : (
+                <span>{community.drive_time_minutes} minutes from Blodgett's</span>
+              )}
             </div>
           )}
-          {community.drive_time_minutes && (
-            <div className="flex items-center text-sm text-muted-foreground">
-              <Clock className="h-4 w-4 mr-1" />
-              {community.drive_time_minutes} min
-            </div>
-          )}
+          <div className="flex items-center text-muted-foreground text-sm">
+            <MapPin className="h-4 w-4 mr-1 flex-shrink-0" />
+            {community.location}
+          </div>
           {community.resident_count && (
             <div className="flex items-center text-sm text-muted-foreground">
               <Users className="h-4 w-4 mr-1" />
@@ -81,7 +81,7 @@ export function CommunityCard({ community, onToggleVisited }: CommunityCardProps
             </div>
           )}
           {community.phone && (
-            <div className="flex items-center text-sm text-muted-foreground">
+            <div className="flex items-center text-sm text-muted-foreground col-span-2">
               <Phone className="h-4 w-4 mr-1" />
               {community.phone}
             </div>
