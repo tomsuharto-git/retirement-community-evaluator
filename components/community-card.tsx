@@ -55,6 +55,17 @@ export function CommunityCard({ community, onToggleVisited }: CommunityCardProps
               </Badge>
             )}
           </div>
+          <Button
+            variant={community.visited ? "default" : "outline"}
+            size="sm"
+            onClick={(e) => {
+              e.stopPropagation()
+              onToggleVisited(community.id)
+            }}
+            className="ml-2"
+          >
+            {community.visited ? "✓ Visited" : "Mark Visited"}
+          </Button>
         </div>
 
         <div className="flex flex-col gap-2 mb-3">
@@ -117,15 +128,7 @@ export function CommunityCard({ community, onToggleVisited }: CommunityCardProps
         )}
 
         <div className="flex gap-2">
-          <Button
-            variant={community.visited ? "default" : "outline"}
-            size="sm"
-            onClick={() => onToggleVisited(community.id)}
-            className="flex-1"
-          >
-            {community.visited ? "Visited" : "Mark as Visited"}
-          </Button>
-          <Link href={`/community/${community.id}`} className="flex-1">
+          <Link href={`/community/${community.id}`} className="w-full">
             <Button variant="outline" size="sm" className="w-full bg-transparent">
               View Details
             </Button>
