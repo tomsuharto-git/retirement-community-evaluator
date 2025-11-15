@@ -5,12 +5,12 @@ INSERT INTO public.communities (
   amenities, description, phone
 ) VALUES 
 (
-  'Brookdale Chatfield', 'West Hartford', '85 Chatfield Dr, West Hartford, CT 06107',
+  'Brookdale Chatfield', 'West Hartford', '1 Chatfield Dr, West Hartford, CT 06110',
   41.7658, -72.7201, 2.1, 8, 4.0, 120,
-  false, 'Independent Living', 3500, 5500,
-  ARRAY['Fitness Center', 'Dining', 'Transportation', 'Activities'],
-  'A vibrant senior living community in West Hartford offering independent living with resort-style amenities.',
-  '(860) 555-0123'
+  false, 'Continuing Care', 3070, 7806,
+  ARRAY['Independent Living', 'Assisted Living', 'Memory Care', 'Fitness Center', 'Chef-Prepared Dining', 'Social Events', '24/7 Staff', 'West Farms Mall Access', 'Wolcott Park Access'],
+  'Senior living with meaningful experiences, vibrant community and personalized care on 10+ luscious acres. Offers independent living, assisted living and memory care. U.S. News rated Best Senior Living for memory care.',
+  '(860) 561-1669'
 ),
 (
   'The McAuley', 'West Hartford', '275 Steele Rd, West Hartford, CT 06117',
@@ -29,12 +29,12 @@ INSERT INTO public.communities (
   '(860) 555-0125'
 ),
 (
-  'Brookdale West Hartford', 'West Hartford', '1 Raymond Rd, West Hartford, CT 06107',
+  'Brookdale West Hartford', 'West Hartford', '22 Simsbury Rd, West Hartford, CT 06117',
   41.7612, -72.7089, 2.4, 9, 4.0, 110,
-  false, 'Memory Care', 5500, 7200,
-  ARRAY['Secure Environment', 'Specialized Care', 'Family Support'],
-  'Specialized memory care community with innovative programs and compassionate staff.',
-  '(860) 555-0126'
+  false, 'Assisted Living', 4240, 7200,
+  ARRAY['Assisted Living', 'Memory Care', 'Pet-Friendly', 'Private Apartments', 'Chef-Inspired Meals', 'Restaurant-Style Dining', 'Landscaped Campus', '24/7 Trained Staff', 'Near University of Hartford', 'Near Hartford Golf Club'],
+  'Home-like senior living community offering assisted living and memory care with personalized support. Beautifully landscaped campus on private grounds. U.S. News rated Best Senior Living for memory care.',
+  '(860) 523-9899'
 ),
 (
   'Avery West Hartford', 'West Hartford', '101 S Main St, West Hartford, CT 06107',
