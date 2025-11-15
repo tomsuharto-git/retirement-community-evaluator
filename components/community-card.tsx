@@ -44,7 +44,7 @@ export function CommunityCard({ community, onToggleVisited }: CommunityCardProps
   }
 
   return (
-    <Card className={cn("transition-all duration-200 hover:shadow-md", isCompareSelected && "ring-2 ring-blue-500")}>
+    <Card className="transition-all duration-200 hover:shadow-md">
       <CardContent className="p-4">
         <div className="flex items-start justify-between mb-3">
           <div className="flex-1">
@@ -59,14 +59,6 @@ export function CommunityCard({ community, onToggleVisited }: CommunityCardProps
               </Badge>
             )}
           </div>
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={() => onToggleCompare(community.id)}
-            className={cn("ml-2", isCompareSelected && "bg-blue-50 border-blue-500 text-blue-700")}
-          >
-            {isCompareSelected ? "Remove" : "Compare"}
-          </Button>
         </div>
 
         <div className="grid grid-cols-2 gap-4 mb-3">
