@@ -233,7 +233,8 @@ export default function CommunityDetailPage({ params }: CommunityDetailPageProps
                   <div className="text-base">
                     {community.distance_miles && `${community.distance_miles} miles`}
                     {community.distance_miles && community.drive_time_minutes && " • "}
-                    {community.drive_time_minutes && `${community.drive_time_minutes} min drive`}
+                    {community.drive_time_minutes && `${community.drive_time_minutes} min`}
+                    {" from Blodgett's"}
                   </div>
                 </div>
               )}
