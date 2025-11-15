@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Switch } from "@/components/ui/switch"
 import { Label } from "@/components/ui/label"
-import { Star, MapPin, Clock, Users, Phone } from "lucide-react"
+import { Star, MapPin, Clock, Users, Phone, Globe } from "lucide-react"
 import type { Community } from "@/lib/types"
 import { cn } from "@/lib/utils"
 import Link from "next/link"
@@ -97,6 +97,20 @@ export function CommunityCard({ community, onToggleVisited }: CommunityCardProps
             <div className="flex items-center text-sm text-muted-foreground">
               <Users className="h-4 w-4 mr-1" />
               {community.resident_count} residents
+            </div>
+          )}
+          {community.website && (
+            <div className="flex items-center text-sm text-muted-foreground">
+              <Globe className="h-4 w-4 mr-1 flex-shrink-0" />
+              <a
+                href={community.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-primary transition-colors hover:underline"
+                onClick={(e) => e.stopPropagation()}
+              >
+                {community.website.replace(/^https?:\/\/(www\.)?/, '').split('/')[0]}
+              </a>
             </div>
           )}
           {community.phone && (
