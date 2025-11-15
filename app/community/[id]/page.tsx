@@ -9,6 +9,7 @@ import { ArrowLeft, MapPin, Phone, Globe, DollarSign, Users, Star, Heart, Chevro
 import { ApiClient } from "@/lib/api-client"
 import type { Community } from "@/lib/types"
 import { LoadingSpinner } from "@/components/loading-spinner"
+import { CommunityReview } from "@/components/community-review"
 import Image from "next/image"
 import {
   Carousel,
@@ -379,6 +380,9 @@ export default function CommunityDetailPage({ params }: CommunityDetailPageProps
             </CardContent>
           </Card>
         )}
+
+        {/* Review Section */}
+        <CommunityReview community={community} onUpdate={setCommunity} />
       </main>
     </div>
   )
