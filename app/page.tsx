@@ -193,7 +193,8 @@ export default function HomePage() {
               <CardContent>
                 <CommunityMap
                   communities={filteredCommunities}
-                  selectedCommunity={hoveredCommunity || selectedCommunity}
+                  selectedCommunity={selectedCommunity}
+                  hoveredCommunity={hoveredCommunity}
                   onCommunitySelect={setSelectedCommunity}
                   className="h-96 lg:h-[500px]"
                 />

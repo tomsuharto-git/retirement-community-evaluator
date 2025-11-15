@@ -6,6 +6,7 @@ import type { Community } from "@/lib/types"
 interface CommunityMapProps {
   communities: Community[]
   selectedCommunity?: string
+  hoveredCommunity?: string
   onCommunitySelect: (communityId: string) => void
   className?: string
 }
@@ -17,7 +18,7 @@ declare global {
   }
 }
 
-export function CommunityMap({ communities, selectedCommunity, onCommunitySelect, className = "" }: CommunityMapProps) {
+export function CommunityMap({ communities, selectedCommunity, hoveredCommunity, onCommunitySelect, className = "" }: CommunityMapProps) {
   const mapRef = useRef<HTMLDivElement>(null)
   const [map, setMap] = useState<any>(null)
   const [markers, setMarkers] = useState<any[]>([])
@@ -166,29 +167,34 @@ export function CommunityMap({ communities, selectedCommunity, onCommunitySelect
     }
   }, [map, communities, onCommunitySelect])
 
-  // Highlight selected community
+  // Highlight selected or hovered community
   useEffect(() => {
-    if (!selectedCommunity || !markers.length || !window.google) return
+    if (!markers.length || !window.google) return
 
     markers.forEach((marker, index) => {
       const community = communities[index]
-      const isSelected = community.id === selectedCommunity
+      const isHovered = hoveredCommunity && community.id === hoveredCommunity
+      const isSelected = selectedCommunity && community.id === selectedCommunity
+      const isHighlighted = isHovered || isSelected
 
       marker.setIcon({
         path: window.google.maps.SymbolPath.CIRCLE,
-        scale: isSelected ? 12 : 8,
+        scale: isHighlighted ? 12 : 8,
         fillColor: community.visited ? "#10b981" : "#3b82f6",
         fillOpacity: 1,
-        strokeColor: isSelected ? "#fbbf24" : "#ffffff",
-        strokeWeight: isSelected ? 3 : 2,
+        strokeColor: isHighlighted ? "#fbbf24" : "#ffffff",
+        strokeWeight: isHighlighted ? 3 : 2,
       })
 
-      // Open info window for selected community
-      if (isSelected) {
+      // Close all info windows first
+      marker.infoWindow?.close()
+
+      // Open info window for hovered or selected community
+      if (isHovered) {
         marker.infoWindow?.open(map, marker)
       }
     })
-  }, [selectedCommunity, markers, communities, map])
+  }, [selectedCommunity, hoveredCommunity, markers, communities, map])
 
   if (!isLoaded) {
     return (
