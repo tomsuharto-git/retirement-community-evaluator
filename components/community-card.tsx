@@ -63,7 +63,7 @@ export function CommunityCard({ community, onToggleVisited }: CommunityCardProps
           </div>
           <div className="flex items-center gap-2">
             <Label htmlFor={`visited-${community.id}`} className="text-sm text-muted-foreground cursor-pointer">
-              Visited
+              {community.visited ? "Visited" : "Not Visited"}
             </Label>
             <Switch
               id={`visited-${community.id}`}
