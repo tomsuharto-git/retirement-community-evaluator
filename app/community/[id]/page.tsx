@@ -90,7 +90,14 @@ export default function CommunityDetailPage({ params }: CommunityDetailPageProps
     const imageCounts: Record<string, number> = {
       "avery-heights": 6,
       "aviva-west-hartford": 12,
+      "brookdale-chatfield": 3,
+      "duncaster": 3,
       "farmington-station": 8,
+      "middlewoods-of-farmington": 3,
+      "seabury": 3,
+      "the-hearth-at-glastonbury": 3,
+      "the-reservoir": 3,
+      "touchpoints-at-farmington": 3,
     }
     return imageCounts[slug] || 0
   }
