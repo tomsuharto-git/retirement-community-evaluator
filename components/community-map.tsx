@@ -110,13 +110,13 @@ export function CommunityMap({ communities, selectedCommunity, hoveredCommunity,
       const infoWindow = new window.google.maps.InfoWindow({
         content: `
           <div class="p-2">
-            <h3 class="font-semibold text-sm mb-1">${community.name}</h3>
+            <a href="/community/${community.id}" class="font-semibold text-sm mb-1 text-blue-600 hover:text-blue-800 hover:underline block">${community.name}</a>
             <p class="text-xs text-gray-600 mb-1">${community.location}</p>
             ${
-              community.star_rating
+              community.review_overall_rating
                 ? `
               <div class="flex items-center mb-1">
-                <span class="text-xs text-yellow-600">★ ${community.star_rating}</span>
+                <span class="text-xs text-yellow-600">★ ${community.review_overall_rating}</span>
               </div>
             `
                 : ""
