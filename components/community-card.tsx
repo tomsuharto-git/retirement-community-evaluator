@@ -3,6 +3,8 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import { Switch } from "@/components/ui/switch"
+import { Label } from "@/components/ui/label"
 import { Star, MapPin, Clock, Users, Phone } from "lucide-react"
 import type { Community } from "@/lib/types"
 import { cn } from "@/lib/utils"
@@ -55,17 +57,19 @@ export function CommunityCard({ community, onToggleVisited }: CommunityCardProps
               </Badge>
             )}
           </div>
-          <Button
-            variant={community.visited ? "default" : "outline"}
-            size="sm"
-            onClick={(e) => {
-              e.stopPropagation()
-              onToggleVisited(community.id)
-            }}
-            className="ml-2"
-          >
-            {community.visited ? "✓ Visited" : "Mark Visited"}
-          </Button>
+          <div className="flex items-center gap-2">
+            <Label htmlFor={`visited-${community.id}`} className="text-sm text-muted-foreground cursor-pointer">
+              Visited
+            </Label>
+            <Switch
+              id={`visited-${community.id}`}
+              checked={community.visited}
+              onCheckedChange={(checked) => {
+                onToggleVisited(community.id)
+              }}
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>
         </div>
 
         <div className="flex flex-col gap-2 mb-3">
