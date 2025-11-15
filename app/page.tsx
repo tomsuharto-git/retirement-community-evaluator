@@ -20,6 +20,7 @@ export default function HomePage() {
   const [error, setError] = useState<string | null>(null)
   const [searchQuery, setSearchQuery] = useState("")
   const [selectedCommunity, setSelectedCommunity] = useState<string>()
+  const [hoveredCommunity, setHoveredCommunity] = useState<string>()
   const [filters, setFilters] = useState<FilterOptions>({
     visited: "all",
     sortBy: "distance",
@@ -174,6 +175,7 @@ export default function HomePage() {
                   onToggleVisited={handleToggleVisited}
                   selectedCommunity={selectedCommunity}
                   onCommunitySelect={setSelectedCommunity}
+                  onCommunityHover={setHoveredCommunity}
                 />
               </CardContent>
             </Card>
@@ -191,7 +193,7 @@ export default function HomePage() {
               <CardContent>
                 <CommunityMap
                   communities={filteredCommunities}
-                  selectedCommunity={selectedCommunity}
+                  selectedCommunity={hoveredCommunity || selectedCommunity}
                   onCommunitySelect={setSelectedCommunity}
                   className="h-96 lg:h-[500px]"
                 />

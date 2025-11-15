@@ -8,6 +8,7 @@ interface CommunityGridProps {
   onToggleVisited: (id: string) => void
   selectedCommunity?: string
   onCommunitySelect: (id: string) => void
+  onCommunityHover: (id: string | undefined) => void
 }
 
 export function CommunityGrid({
@@ -15,6 +16,7 @@ export function CommunityGrid({
   onToggleVisited,
   selectedCommunity,
   onCommunitySelect,
+  onCommunityHover,
 }: CommunityGridProps) {
   if (communities.length === 0) {
     return (
@@ -28,7 +30,13 @@ export function CommunityGrid({
   return (
     <div className="flex flex-col gap-4">
       {communities.map((community) => (
-        <div key={community.id} onClick={() => onCommunitySelect(community.id)} className="cursor-pointer">
+        <div
+          key={community.id}
+          onClick={() => onCommunitySelect(community.id)}
+          onMouseEnter={() => onCommunityHover(community.id)}
+          onMouseLeave={() => onCommunityHover(undefined)}
+          className="cursor-pointer"
+        >
           <CommunityCard
             community={community}
             onToggleVisited={onToggleVisited}
