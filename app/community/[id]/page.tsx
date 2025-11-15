@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { ArrowLeft, MapPin, Phone, Globe, DollarSign, Users, Star, Heart, ChevronLeft, ChevronRight } from "lucide-react"
+import { ArrowLeft, MapPin, Phone, Globe, DollarSign, Users, Star, Heart, ChevronLeft, ChevronRight, Home, UsersRound } from "lucide-react"
 import { ApiClient } from "@/lib/api-client"
 import type { Community } from "@/lib/types"
 import { LoadingSpinner } from "@/components/loading-spinner"
@@ -291,10 +291,10 @@ export default function CommunityDetailPage({ params }: CommunityDetailPageProps
         </Card>
 
         {/* Financials Section */}
-        <Card className="mb-6">
+        <Card className="mb-6 border-l-4 border-l-[#22C55E]">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <DollarSign className="h-5 w-5" />
+              <DollarSign className="h-5 w-5 text-[#22C55E]" />
               Financials
             </CardTitle>
           </CardHeader>
@@ -321,20 +321,26 @@ export default function CommunityDetailPage({ params }: CommunityDetailPageProps
 
         {/* Care Levels Section */}
         {community.care_levels && community.care_levels.length > 0 && (
-          <Card className="mb-6">
+          <Card className="mb-6 border-l-4 border-l-[#A855F7]">
             <CardHeader>
-              <CardTitle>Care Levels Available</CardTitle>
+              <CardTitle className="flex items-center gap-2">
+                <Heart className="h-5 w-5 text-[#A855F7]" />
+                Care
+              </CardTitle>
             </CardHeader>
             <CardContent>
               {community.care_summary && (
                 <p className="text-muted-foreground mb-4">{community.care_summary}</p>
               )}
-              <div className="flex flex-wrap gap-2">
-                {community.care_levels.map((level, index) => (
-                  <Badge key={index} variant="default" className="text-sm">
-                    {level}
-                  </Badge>
-                ))}
+              <div className="space-y-3">
+                <h3 className="font-semibold text-sm">Care Levels Available</h3>
+                <div className="flex flex-wrap gap-2">
+                  {community.care_levels.map((level, index) => (
+                    <Badge key={index} className="text-sm bg-[#A855F7] hover:bg-[#9333EA]">
+                      {level}
+                    </Badge>
+                  ))}
+                </div>
               </div>
             </CardContent>
           </Card>
@@ -342,20 +348,26 @@ export default function CommunityDetailPage({ params }: CommunityDetailPageProps
 
         {/* Housing Options Section */}
         {community.housing_options && community.housing_options.length > 0 && (
-          <Card className="mb-6">
+          <Card className="mb-6 border-l-4 border-l-[#F97316]">
             <CardHeader>
-              <CardTitle>Housing Options</CardTitle>
+              <CardTitle className="flex items-center gap-2">
+                <Home className="h-5 w-5 text-[#F97316]" />
+                Housing
+              </CardTitle>
             </CardHeader>
             <CardContent>
               {community.housing_summary && (
                 <p className="text-muted-foreground mb-4">{community.housing_summary}</p>
               )}
-              <div className="flex flex-wrap gap-2">
-                {community.housing_options.map((option, index) => (
-                  <Badge key={index} variant="outline" className="text-sm">
-                    {option}
-                  </Badge>
-                ))}
+              <div className="space-y-3">
+                <h3 className="font-semibold text-sm">Available Housing Options</h3>
+                <div className="flex flex-wrap gap-2">
+                  {community.housing_options.map((option, index) => (
+                    <Badge key={index} className="text-sm bg-[#F97316] hover:bg-[#EA580C]">
+                      {option}
+                    </Badge>
+                  ))}
+                </div>
               </div>
             </CardContent>
           </Card>
@@ -363,26 +375,32 @@ export default function CommunityDetailPage({ params }: CommunityDetailPageProps
 
         {/* Community Amenities Section */}
         {community.amenities && community.amenities.length > 0 && (
-          <Card className="mb-6">
+          <Card className="mb-6 border-l-4 border-l-[#FB923C]">
             <CardHeader>
-              <CardTitle>Community Amenities</CardTitle>
+              <CardTitle className="flex items-center gap-2">
+                <UsersRound className="h-5 w-5 text-[#FB923C]" />
+                Community
+              </CardTitle>
             </CardHeader>
             <CardContent>
               {community.community_summary && (
                 <p className="text-muted-foreground mb-4">{community.community_summary}</p>
               )}
-              <div className="flex flex-wrap gap-2 mb-4">
-                {(showAllAmenities ? community.amenities : community.amenities.slice(0, 8)).map((amenity, index) => (
-                  <Badge key={index} variant="secondary" className="text-sm">
-                    {amenity}
-                  </Badge>
-                ))}
+              <div className="space-y-3">
+                <h3 className="font-semibold text-sm">Community Amenities</h3>
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {(showAllAmenities ? community.amenities : community.amenities.slice(0, 8)).map((amenity, index) => (
+                    <Badge key={index} className="text-sm bg-[#FB923C] hover:bg-[#F97316]">
+                      {amenity}
+                    </Badge>
+                  ))}
+                </div>
+                {community.amenities.length > 8 && (
+                  <Button variant="outline" onClick={() => setShowAllAmenities(!showAllAmenities)}>
+                    {showAllAmenities ? "Show Less" : `Show All ${community.amenities.length} Amenities`}
+                  </Button>
+                )}
               </div>
-              {community.amenities.length > 8 && (
-                <Button variant="outline" onClick={() => setShowAllAmenities(!showAllAmenities)}>
-                  {showAllAmenities ? "Show Less" : `Show All ${community.amenities.length} Amenities`}
-                </Button>
-              )}
             </CardContent>
           </Card>
         )}

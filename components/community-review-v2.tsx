@@ -137,10 +137,10 @@ export function CommunityReviewV2({ community, onUpdate }: CommunityReviewV2Prop
   }
 
   return (
-    <Card className="border-l-4 border-l-blue-500">
+    <Card className="border-l-4 border-l-[#3B82F6]">
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
-          <Pencil className="h-5 w-5 text-blue-500" />
+          <Pencil className="h-5 w-5 text-[#3B82F6]" />
           Suharto Review
         </CardTitle>
       </CardHeader>
