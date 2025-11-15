@@ -57,7 +57,7 @@ export function CommunityCard({ community, onToggleVisited }: CommunityCardProps
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-4 mb-3">
+        <div className="flex flex-col gap-2 mb-3">
           <div className="flex items-center text-muted-foreground text-sm">
             <MapPin className="h-4 w-4 mr-1 flex-shrink-0" />
             {community.location}
@@ -75,13 +75,13 @@ export function CommunityCard({ community, onToggleVisited }: CommunityCardProps
             </div>
           )}
           {community.resident_count && (
-            <div className="flex items-center text-sm text-muted-foreground col-start-2">
+            <div className="flex items-center text-sm text-muted-foreground">
               <Users className="h-4 w-4 mr-1" />
               {community.resident_count} residents
             </div>
           )}
           {community.phone && (
-            <div className="flex items-center text-sm text-muted-foreground col-span-2">
+            <div className="flex items-center text-sm text-muted-foreground">
               <Phone className="h-4 w-4 mr-1" />
               {community.phone}
             </div>
