@@ -33,7 +33,8 @@ export default function HomePage() {
 
   // Filter and search communities
   useEffect(() => {
-    let filtered = [...communities]
+    // Filter out any undefined/null values first
+    let filtered = communities.filter((c) => c != null)
 
     // Apply search
     if (searchQuery) {
@@ -92,6 +93,13 @@ export default function HomePage() {
       if (!community) return
 
       const updated = await ApiClient.toggleVisited(id, !community.visited)
+
+      // Only update state if we got a valid response
+      if (!updated) {
+        console.error("No community data returned from API")
+        return
+      }
+
       setCommunities((prev) => prev.map((c) => (c.id === id ? updated : c)))
     } catch (err) {
       console.error("Error toggling visited status:", err)
