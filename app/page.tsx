@@ -144,8 +144,7 @@ export default function HomePage() {
                 <MapPin className="h-6 w-6 text-primary-foreground" />
               </div>
               <div>
-                <h1 className="text-xl font-bold text-foreground">Suharto Retirement Community Evaluator</h1>
-                <p className="text-sm text-muted-foreground">Find and compare retirement communities in Connecticut</p>
+                <h1 className="text-2xl font-bold text-foreground">Suharto Retirement Community Evaluator</h1>
               </div>
             </div>
           </div>
