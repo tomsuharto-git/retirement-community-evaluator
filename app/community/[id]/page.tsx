@@ -251,33 +251,33 @@ export default function CommunityDetailPage({ params }: CommunityDetailPageProps
 
       {/* Community Info */}
       <div className="container mx-auto px-4 pt-6">
-        <div className="flex items-start justify-between mb-4">
-          <div className="flex-1">
-            <h2 className="text-3xl font-bold text-foreground mb-2">{community.name}</h2>
-            {community.address ? (
-              <div className="flex items-center text-muted-foreground text-sm">
-                <MapPin className="h-4 w-4 mr-1" />
-                {community.address}
-              </div>
-            ) : (
-              <div className="flex items-center text-muted-foreground text-sm">
-                <MapPin className="h-4 w-4 mr-1" />
-                {community.location}
-              </div>
-            )}
+        <div className="mb-4">
+          <div className="flex items-center gap-3 mb-2">
+            <h2 className="text-3xl font-bold text-foreground">{community.name}</h2>
+            <div className="flex items-center gap-2">
+              <Label htmlFor={`visited-${community.id}`} className="text-sm text-muted-foreground cursor-pointer">
+                {community.visited ? "Visited" : "Not Visited"}
+              </Label>
+              <Switch
+                id={`visited-${community.id}`}
+                checked={community.visited}
+                onCheckedChange={(checked) => {
+                  handleToggleVisited()
+                }}
+              />
+            </div>
           </div>
-          <div className="flex items-center gap-2">
-            <Label htmlFor={`visited-${community.id}`} className="text-sm text-muted-foreground cursor-pointer">
-              {community.visited ? "Visited" : "Not Visited"}
-            </Label>
-            <Switch
-              id={`visited-${community.id}`}
-              checked={community.visited}
-              onCheckedChange={(checked) => {
-                handleToggleVisited()
-              }}
-            />
-          </div>
+          {community.address ? (
+            <div className="flex items-center text-muted-foreground text-sm">
+              <MapPin className="h-4 w-4 mr-1" />
+              {community.address}
+            </div>
+          ) : (
+            <div className="flex items-center text-muted-foreground text-sm">
+              <MapPin className="h-4 w-4 mr-1" />
+              {community.location}
+            </div>
+          )}
         </div>
       </div>
 
