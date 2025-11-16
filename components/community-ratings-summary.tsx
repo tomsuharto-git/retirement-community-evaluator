@@ -12,13 +12,13 @@ export function CommunityRatingsSummary({ community }: CommunityRatingsSummaryPr
 
   return (
     <Card className="border-l-4 border-l-[#3B82F6]">
-      <CardHeader>
+      <CardHeader className="pb-3">
         <CardTitle className="flex items-center gap-2">
           <Info className="h-5 w-5 text-[#3B82F6]" />
           Overview
         </CardTitle>
       </CardHeader>
-      <CardContent className="p-6">
+      <CardContent className="pt-0 px-6 pb-6">
         {/* Community Description */}
         {community.description && (
           <div className="mb-6">

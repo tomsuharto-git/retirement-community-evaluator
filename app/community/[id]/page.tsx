@@ -318,7 +318,7 @@ export default function CommunityDetailPage({ params }: CommunityDetailPageProps
 
         {/* Financials Section */}
         <Card className="mb-6 border-l-4 border-l-[#22C55E]">
-          <CardHeader>
+          <CardHeader className="pb-3">
             <div className="flex items-center justify-between">
               <CardTitle className="flex items-center gap-2">
                 <DollarSign className="h-5 w-5 text-[#22C55E]" />
@@ -335,7 +335,7 @@ export default function CommunityDetailPage({ params }: CommunityDetailPageProps
               )}
             </div>
           </CardHeader>
-          <CardContent>
+          <CardContent className="pt-0">
             {community.financials_summary && (
               <p className="text-muted-foreground mb-4">{community.financials_summary}</p>
             )}
@@ -398,7 +398,7 @@ export default function CommunityDetailPage({ params }: CommunityDetailPageProps
         {/* Care Levels Section */}
         {(community.care_levels && community.care_levels.length > 0) || editingCare ? (
           <Card className="mb-6 border-l-4 border-l-[#A855F7]">
-            <CardHeader>
+            <CardHeader className="pb-3">
               <div className="flex items-center justify-between">
                 <CardTitle className="flex items-center gap-2">
                   <Heart className="h-5 w-5 text-[#A855F7]" />
@@ -415,7 +415,7 @@ export default function CommunityDetailPage({ params }: CommunityDetailPageProps
                 )}
               </div>
             </CardHeader>
-            <CardContent>
+            <CardContent className="pt-0">
               {community.care_summary && (
                 <p className="text-muted-foreground mb-4">{community.care_summary}</p>
               )}
@@ -482,7 +482,7 @@ export default function CommunityDetailPage({ params }: CommunityDetailPageProps
         {/* Housing Options Section */}
         {(community.housing_options && community.housing_options.length > 0) || editingHousing ? (
           <Card className="mb-6 border-l-4 border-l-[#EF4444]">
-            <CardHeader>
+            <CardHeader className="pb-3">
               <div className="flex items-center justify-between">
                 <CardTitle className="flex items-center gap-2">
                   <Home className="h-5 w-5 text-[#EF4444]" />
@@ -499,7 +499,7 @@ export default function CommunityDetailPage({ params }: CommunityDetailPageProps
                 )}
               </div>
             </CardHeader>
-            <CardContent>
+            <CardContent className="pt-0">
               {community.housing_summary && (
                 <p className="text-muted-foreground mb-4">{community.housing_summary}</p>
               )}
@@ -566,7 +566,7 @@ export default function CommunityDetailPage({ params }: CommunityDetailPageProps
         {/* Community Amenities Section */}
         {(community.amenities && community.amenities.length > 0) || editingCommunity ? (
           <Card className="mb-6 border-l-4 border-l-[#FB923C]">
-            <CardHeader>
+            <CardHeader className="pb-3">
               <div className="flex items-center justify-between">
                 <CardTitle className="flex items-center gap-2">
                   <UsersRound className="h-5 w-5 text-[#FB923C]" />
@@ -583,7 +583,7 @@ export default function CommunityDetailPage({ params }: CommunityDetailPageProps
                 )}
               </div>
             </CardHeader>
-            <CardContent>
+            <CardContent className="pt-0">
               {community.community_summary && (
                 <p className="text-muted-foreground mb-4">{community.community_summary}</p>
               )}

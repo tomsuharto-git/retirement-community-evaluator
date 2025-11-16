@@ -138,13 +138,13 @@ export function CommunityReviewV2({ community, onUpdate }: CommunityReviewV2Prop
 
   return (
     <Card className="border-l-4 border-l-[#3B82F6]">
-      <CardHeader>
+      <CardHeader className="pb-3">
         <CardTitle className="flex items-center gap-2">
           <Pencil className="h-5 w-5 text-[#3B82F6]" />
           Suharto Review
         </CardTitle>
       </CardHeader>
-      <CardContent className="space-y-6">
+      <CardContent className="pt-0 space-y-6">
         {/* Rate Your Experience */}
         <div>
           <h3 className="font-semibold mb-4">Rate Your Experience</h3>
