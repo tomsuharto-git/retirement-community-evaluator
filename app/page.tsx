@@ -168,41 +168,33 @@ export default function HomePage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 h-full">
           {/* Communities List - Left Side - Scrollable */}
           <div className="order-2 lg:order-1 overflow-y-auto">
-            <Card className="h-full">
-              <CardHeader className="sticky top-0 bg-card z-10">
-                <CardTitle className="text-lg">Communities ({filteredCommunities.length})</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CommunityGrid
-                  communities={filteredCommunities}
-                  onToggleVisited={handleToggleVisited}
-                  selectedCommunity={selectedCommunity}
-                  onCommunitySelect={setSelectedCommunity}
-                  onCommunityHover={setHoveredCommunity}
-                />
-              </CardContent>
-            </Card>
+            <div className="sticky top-0 bg-background z-10 pb-3">
+              <h2 className="text-lg font-semibold">Communities ({filteredCommunities.length})</h2>
+            </div>
+            <CommunityGrid
+              communities={filteredCommunities}
+              onToggleVisited={handleToggleVisited}
+              selectedCommunity={selectedCommunity}
+              onCommunitySelect={setSelectedCommunity}
+              onCommunityHover={setHoveredCommunity}
+            />
           </div>
 
           {/* Map - Right Side - Fixed */}
-          <div className="order-1 lg:order-2">
-            <Card className="h-full">
-              <CardHeader className="pb-3">
-                <CardTitle className="text-lg flex items-center gap-2">
-                  <MapPin className="h-5 w-5" />
-                  Community Locations
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="h-[calc(100%-4rem)]">
-                <CommunityMap
-                  communities={filteredCommunities}
-                  selectedCommunity={selectedCommunity}
-                  hoveredCommunity={hoveredCommunity}
-                  onCommunitySelect={setSelectedCommunity}
-                  className="h-full"
-                />
-              </CardContent>
-            </Card>
+          <div className="order-1 lg:order-2 h-full">
+            <div className="pb-3">
+              <h2 className="text-lg font-semibold flex items-center gap-2">
+                <MapPin className="h-5 w-5" />
+                Community Locations
+              </h2>
+            </div>
+            <CommunityMap
+              communities={filteredCommunities}
+              selectedCommunity={selectedCommunity}
+              hoveredCommunity={hoveredCommunity}
+              onCommunitySelect={setSelectedCommunity}
+              className="h-[calc(100%-3rem)]"
+            />
           </div>
         </div>
       </main>
