@@ -5,10 +5,8 @@ import { CommunityMap } from "@/components/community-map"
 import { CommunityGrid } from "@/components/community-grid"
 import { SearchFilters } from "@/components/search-filters"
 import { LoadingSpinner } from "@/components/loading-spinner"
-import { ThemeToggle } from "@/components/theme-toggle"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
 import { MapPin } from "lucide-react"
 import { ApiClient } from "@/lib/api-client"
 import type { Community, FilterOptions } from "@/lib/types"
@@ -149,12 +147,6 @@ export default function HomePage() {
                 <h1 className="text-xl font-bold text-foreground">Suharto Retirement Community Evaluator</h1>
                 <p className="text-sm text-muted-foreground">Find and compare retirement communities in Connecticut</p>
               </div>
-            </div>
-            <div className="flex items-center gap-2">
-              <Badge variant="secondary" className="hidden sm:flex">
-                {filteredCommunities.length} communities
-              </Badge>
-              <ThemeToggle />
             </div>
           </div>
         </div>
