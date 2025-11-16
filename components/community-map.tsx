@@ -155,6 +155,8 @@ export function CommunityMap({ communities, selectedCommunity, hoveredCommunity,
     if (newMarkers.length > 0) {
       const bounds = new window.google.maps.LatLngBounds()
       communities.forEach((community) => {
+        // Skip if community is undefined
+        if (!community) return
         bounds.extend({ lat: community.latitude, lng: community.longitude })
       })
       map.fitBounds(bounds)
@@ -173,6 +175,10 @@ export function CommunityMap({ communities, selectedCommunity, hoveredCommunity,
 
     markers.forEach((marker, index) => {
       const community = communities[index]
+
+      // Skip if community is undefined
+      if (!community) return
+
       const isHovered = hoveredCommunity && community.id === hoveredCommunity
       const isSelected = selectedCommunity && community.id === selectedCommunity
       const isHighlighted = isHovered || isSelected
