@@ -231,23 +231,39 @@ export default function CommunityDetailPage({ params }: CommunityDetailPageProps
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="border-b bg-card sticky top-0 z-10">
+      <header className="border-b bg-background">
         <div className="container mx-auto px-4 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="flex items-center justify-center w-10 h-10 bg-primary rounded-lg">
+                <MapPin className="h-6 w-6 text-primary-foreground" />
+              </div>
+              <div>
+                <h1 className="text-2xl font-bold text-foreground">Suharto Retirement Community Evaluator</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Community Info Bar */}
+      <div className="border-b bg-background">
+        <div className="container mx-auto px-4 py-3">
           <div className="flex items-center gap-4">
             <Button variant="ghost" size="sm" onClick={() => router.push("/")}>
               <ArrowLeft className="h-4 w-4 mr-2" />
               Back
             </Button>
             <div className="flex-1">
-              <h1 className="text-2xl font-bold text-foreground">{community.name}</h1>
+              <h2 className="text-lg font-semibold text-foreground">{community.name}</h2>
               {community.address ? (
-                <div className="flex items-center text-muted-foreground text-sm mt-1">
-                  <MapPin className="h-4 w-4 mr-1" />
+                <div className="flex items-center text-muted-foreground text-sm">
+                  <MapPin className="h-3 w-3 mr-1" />
                   {community.address}
                 </div>
               ) : (
-                <div className="flex items-center text-muted-foreground text-sm mt-1">
-                  <MapPin className="h-4 w-4 mr-1" />
+                <div className="flex items-center text-muted-foreground text-sm">
+                  <MapPin className="h-3 w-3 mr-1" />
                   {community.location}
                 </div>
               )}
@@ -262,7 +278,7 @@ export default function CommunityDetailPage({ params }: CommunityDetailPageProps
             </Button>
           </div>
         </div>
-      </header>
+      </div>
 
       <main className="container mx-auto px-4 py-6 max-w-5xl">
         {/* Photo Gallery */}
