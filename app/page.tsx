@@ -130,7 +130,7 @@ export default function HomePage() {
   return (
     <div className="flex flex-col h-screen bg-background">
       {/* Header - Fixed */}
-      <header className="border-b bg-card flex-shrink-0">
+      <header className="border-b bg-background flex-shrink-0">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
