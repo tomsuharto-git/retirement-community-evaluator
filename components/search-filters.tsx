@@ -56,6 +56,11 @@ export function SearchFilters({
                 variant={filters.visited === option.value ? "default" : "outline"}
                 size="sm"
                 onClick={() => onFiltersChange({ ...filters, visited: option.value as FilterOptions["visited"] })}
+                className={
+                  option.value === "visited" && filters.visited === "visited"
+                    ? "bg-green-600 hover:bg-green-700 text-white"
+                    : ""
+                }
               >
                 {option.label}
               </Button>
