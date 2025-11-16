@@ -1,7 +1,7 @@
 "use client"
 
-import { MapPin, Globe, Clock } from "lucide-react"
-import { Card, CardContent } from "@/components/ui/card"
+import { MapPin, Globe, Clock, Info } from "lucide-react"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import type { Community } from "@/lib/types"
 
 interface CommunityRatingsSummaryProps {
@@ -11,7 +11,13 @@ interface CommunityRatingsSummaryProps {
 export function CommunityRatingsSummary({ community }: CommunityRatingsSummaryProps) {
 
   return (
-    <Card>
+    <Card className="border-l-4 border-l-[#3B82F6]">
+      <CardHeader>
+        <CardTitle className="flex items-center gap-2">
+          <Info className="h-5 w-5 text-[#3B82F6]" />
+          Overview
+        </CardTitle>
+      </CardHeader>
       <CardContent className="p-6">
         {/* Community Description */}
         {community.description && (
