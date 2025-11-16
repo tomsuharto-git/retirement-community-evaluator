@@ -6,7 +6,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
-import { ArrowLeft, MapPin, Phone, Globe, DollarSign, Users, Star, Heart, ChevronLeft, ChevronRight, Home, UsersRound, Edit2, Plus, X, Save } from "lucide-react"
+import { Switch } from "@/components/ui/switch"
+import { Label } from "@/components/ui/label"
+import { MapPin, Phone, Globe, DollarSign, Users, Star, ChevronLeft, ChevronRight, Home, UsersRound, Edit2, Plus, X, Save } from "lucide-react"
+import Link from "next/link"
 import { ApiClient } from "@/lib/api-client"
 import type { Community } from "@/lib/types"
 import { LoadingSpinner } from "@/components/loading-spinner"
@@ -234,48 +237,46 @@ export default function CommunityDetailPage({ params }: CommunityDetailPageProps
       <header className="border-b bg-background">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
+            <Link href="/" className="flex items-center gap-3 cursor-pointer hover:opacity-80 transition-opacity">
               <div className="flex items-center justify-center w-10 h-10 bg-primary rounded-lg">
                 <MapPin className="h-6 w-6 text-primary-foreground" />
               </div>
               <div>
                 <h1 className="text-2xl font-bold text-foreground">Suharto Retirement Community Evaluator</h1>
               </div>
-            </div>
+            </Link>
           </div>
         </div>
       </header>
 
-      {/* Community Info Bar */}
-      <div className="border-b bg-background">
-        <div className="container mx-auto px-4 py-3">
-          <div className="flex items-center gap-4">
-            <Button variant="ghost" size="sm" onClick={() => router.push("/")}>
-              <ArrowLeft className="h-4 w-4 mr-2" />
-              Back
-            </Button>
-            <div className="flex-1">
-              <h2 className="text-lg font-semibold text-foreground">{community.name}</h2>
-              {community.address ? (
-                <div className="flex items-center text-muted-foreground text-sm">
-                  <MapPin className="h-3 w-3 mr-1" />
-                  {community.address}
-                </div>
-              ) : (
-                <div className="flex items-center text-muted-foreground text-sm">
-                  <MapPin className="h-3 w-3 mr-1" />
-                  {community.location}
-                </div>
-              )}
-            </div>
-            <Button
-              variant={community.visited ? "default" : "outline"}
-              onClick={handleToggleVisited}
-              className="flex items-center gap-2"
-            >
-              <Heart className={community.visited ? "fill-current" : ""} />
-              {community.visited ? "Visited" : "Mark as Visited"}
-            </Button>
+      {/* Community Info */}
+      <div className="container mx-auto px-4 pt-6">
+        <div className="flex items-start justify-between mb-4">
+          <div className="flex-1">
+            <h2 className="text-3xl font-bold text-foreground mb-2">{community.name}</h2>
+            {community.address ? (
+              <div className="flex items-center text-muted-foreground text-sm">
+                <MapPin className="h-4 w-4 mr-1" />
+                {community.address}
+              </div>
+            ) : (
+              <div className="flex items-center text-muted-foreground text-sm">
+                <MapPin className="h-4 w-4 mr-1" />
+                {community.location}
+              </div>
+            )}
+          </div>
+          <div className="flex items-center gap-2">
+            <Label htmlFor={`visited-${community.id}`} className="text-sm text-muted-foreground cursor-pointer">
+              {community.visited ? "Visited" : "Not Visited"}
+            </Label>
+            <Switch
+              id={`visited-${community.id}`}
+              checked={community.visited}
+              onCheckedChange={(checked) => {
+                handleToggleVisited()
+              }}
+            />
           </div>
         </div>
       </div>
