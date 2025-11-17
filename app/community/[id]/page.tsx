@@ -94,6 +94,7 @@ export default function CommunityDetailPage({ params }: CommunityDetailPageProps
       "avery-heights": 6,
       "aviva-west-hartford": 12,
       "brookdale-chatfield": 3,
+      "covenant-living-of-cromwell": 9,
       "duncaster": 3,
       "farmington-station": 8,
       "middlewoods-of-farmington": 3,

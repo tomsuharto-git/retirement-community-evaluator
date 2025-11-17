@@ -83,4 +83,13 @@ INSERT INTO public.communities (
   ARRAY['River Views', 'Walking Trails', 'Clubhouse', 'Transportation'],
   'Beautiful riverside retirement community with scenic views and outdoor recreation.',
   '(860) 555-0132'
+),
+(
+  'Covenant Living of Cromwell', 'Cromwell', '101 West Street, Cromwell, CT 06416',
+  41.5950, -72.6450, 11.2, 18, 4.3, 300,
+  false, 'Continuing Care', 2742, 5500,
+  ARRAY['State-of-the-Art Fitness Center', 'Town Center Community Room', 'Restaurant-Style Dining', 'Common Grounds Café', 'Coffee Shop', 'Movie Theater', 'Music Room', 'Arts & Crafts Studio', 'Art Center', 'Activities Room', 'Barber & Beauty Salon', 'Library', 'Billiard Room', '42 Acres of Landscaped Grounds', 'Flower-Filled Gardens', 'Walking Trails', 'Jogging & Biking Paths', 'Natural Pond Views', 'Pet-Friendly (Dog Run)', '24-Hour Emergency Response', '24-Hour Nursing Staff', 'Medication Management', 'Physical Therapy', 'On-Site Rehabilitation', 'Healthcare Navigation', 'Transportation Services', 'Daily Shopping Trips', 'Housekeeping Services', 'Laundry Services', 'Community-Wide Free Wi-Fi', 'Private Kitchenettes', 'Patios & Balconies', 'Multiple Elevators', 'Backup Generator'],
+  'Established continuing care retirement community on a picturesque 42-acre campus featuring flower-filled gardens and evergreen-shaded walking paths near Hartford. Offers complete continuum of care from independent living through skilled nursing at Pilgrim Manor, with specialized memory care, rehabilitation services, and the innovative LifeConnect wellness program. Award-winning community (Best of Hartford finalist 2019-2022) featuring Town Center with café, restaurant, movie theater, art studio, state-of-the-art fitness center, and over 40 clubs and activities for an engaged lifestyle.',
+  '(860) 635-2690',
+  'https://www.covlivingcromwell.org/'
 );
