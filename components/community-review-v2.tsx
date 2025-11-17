@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
 import { Input } from "@/components/ui/input"
-import { Star, Pencil, Plus, X } from "lucide-react"
+import { Star, Pencil, Plus, X, Edit2, Save } from "lucide-react"
 import type { Community } from "@/lib/types"
 import { ApiClient } from "@/lib/api-client"
 import { useDebounce } from "@/hooks/use-debounce"
@@ -32,6 +32,7 @@ export function CommunityReviewV2({ community, onUpdate }: CommunityReviewV2Prop
     community.review_cons ? community.review_cons.split('\n').filter(Boolean) : []
   )
   const [notes, setNotes] = useState(community.review_notes || "")
+  const [editingNotes, setEditingNotes] = useState(false)
   const [newPro, setNewPro] = useState("")
   const [newCon, setNewCon] = useState("")
 
@@ -134,6 +135,18 @@ export function CommunityReviewV2({ community, onUpdate }: CommunityReviewV2Prop
     ApiClient.updateCommunity(community.id, {
       review_cons: updatedCons.join('\n'),
     }).then(onUpdate)
+  }
+
+  const handleSaveNotes = async () => {
+    try {
+      const updated = await ApiClient.updateCommunity(community.id, {
+        review_notes: notes,
+      })
+      onUpdate(updated)
+      setEditingNotes(false)
+    } catch (err) {
+      console.error("Error saving notes:", err)
+    }
   }
 
   return (
@@ -274,21 +287,50 @@ export function CommunityReviewV2({ community, onUpdate }: CommunityReviewV2Prop
 
         {/* Review Notes */}
         <div>
-          <h3 className="font-semibold mb-3">Review Notes</h3>
-          <Textarea
-            placeholder="Share your thoughts and impressions..."
-            value={notes}
-            onChange={(e) => {
-              if (e.target.value.length <= 1000) {
-                setNotes(e.target.value)
-              }
-            }}
-            rows={4}
-            className="resize-none"
-          />
-          <div className="text-xs text-muted-foreground text-right mt-1">
-            {notes.length}/1000
+          <div className="flex items-center justify-between mb-3">
+            <h3 className="font-semibold">Review Notes</h3>
+            {!editingNotes && notes ? (
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setEditingNotes(true)}
+              >
+                <Edit2 className="h-4 w-4" />
+              </Button>
+            ) : null}
           </div>
+          {editingNotes || !notes ? (
+            <>
+              <Textarea
+                placeholder="Share your thoughts and impressions..."
+                value={notes}
+                onChange={(e) => {
+                  if (e.target.value.length <= 1000) {
+                    setNotes(e.target.value)
+                  }
+                }}
+                rows={4}
+                className="resize-none"
+              />
+              <div className="flex items-center justify-between mt-1">
+                <div className="text-xs text-muted-foreground">
+                  {notes.length}/1000
+                </div>
+                {notes && (
+                  <Button
+                    onClick={handleSaveNotes}
+                    size="sm"
+                    variant="outline"
+                  >
+                    <Save className="h-4 w-4 mr-1" />
+                    Save
+                  </Button>
+                )}
+              </div>
+            </>
+          ) : (
+            <p className="text-muted-foreground whitespace-pre-wrap">{notes}</p>
+          )}
         </div>
       </CardContent>
     </Card>
