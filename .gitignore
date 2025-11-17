@@ -25,3 +25,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Meridian working files (project-specific, don't commit personal context)
+.meridian/tasks/
+.meridian/memory.jsonl
+.meridian/task-backlog.yaml

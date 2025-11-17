@@ -186,19 +186,22 @@ export function CommunityReviewV2({ community, onUpdate }: CommunityReviewV2Prop
         <div>
           <h3 className="font-semibold mb-3">Pros</h3>
           <div className="space-y-2">
-            {pros.map((pro, index) => (
-              <div key={index} className="flex items-center gap-2 bg-muted p-2 rounded">
-                <span className="flex-1 text-sm">{pro}</span>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => removePro(index)}
-                  className="h-6 w-6 p-0"
+            <div className="flex flex-wrap gap-2 mb-2">
+              {pros.map((pro, index) => (
+                <div
+                  key={index}
+                  className="group relative inline-flex items-center gap-1.5 bg-green-600 hover:bg-green-700 text-white px-3 py-1.5 rounded-full text-sm transition-colors"
                 >
-                  <X className="h-4 w-4" />
-                </Button>
-              </div>
-            ))}
+                  <span>{pro}</span>
+                  <button
+                    onClick={() => removePro(index)}
+                    className="opacity-0 group-hover:opacity-100 transition-opacity ml-1 hover:bg-green-800 rounded-full p-0.5"
+                  >
+                    <X className="h-3 w-3" />
+                  </button>
+                </div>
+              ))}
+            </div>
             <div className="flex gap-2">
               <Input
                 placeholder="Add a pro..."
@@ -228,19 +231,22 @@ export function CommunityReviewV2({ community, onUpdate }: CommunityReviewV2Prop
         <div>
           <h3 className="font-semibold mb-3">Cons</h3>
           <div className="space-y-2">
-            {cons.map((con, index) => (
-              <div key={index} className="flex items-center gap-2 bg-muted p-2 rounded">
-                <span className="flex-1 text-sm">{con}</span>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => removeCon(index)}
-                  className="h-6 w-6 p-0"
+            <div className="flex flex-wrap gap-2 mb-2">
+              {cons.map((con, index) => (
+                <div
+                  key={index}
+                  className="group relative inline-flex items-center gap-1.5 bg-red-600 hover:bg-red-700 text-white px-3 py-1.5 rounded-full text-sm transition-colors"
                 >
-                  <X className="h-4 w-4" />
-                </Button>
-              </div>
-            ))}
+                  <span>{con}</span>
+                  <button
+                    onClick={() => removeCon(index)}
+                    className="opacity-0 group-hover:opacity-100 transition-opacity ml-1 hover:bg-red-800 rounded-full p-0.5"
+                  >
+                    <X className="h-3 w-3" />
+                  </button>
+                </div>
+              ))}
+            </div>
             <div className="flex gap-2">
               <Input
                 placeholder="Add a con..."
