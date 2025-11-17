@@ -138,7 +138,7 @@ export function CommunityReviewV2({ community, onUpdate }: CommunityReviewV2Prop
 
   return (
     <Card className="border-l-4 border-l-[#3B82F6]">
-      <CardHeader className="pb-3">
+      <CardHeader className="pb-2">
         <CardTitle className="flex items-center gap-2">
           <Pencil className="h-5 w-5 text-[#3B82F6]" />
           Suharto Review
