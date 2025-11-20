@@ -327,11 +327,13 @@ export default function CommunityDetailPage({ params }: CommunityDetailPageProps
               </CardTitle>
               {!editingFinancials ? (
                 <Button variant="ghost" size="sm" onClick={() => setEditingFinancials(true)}>
-                  <Edit2 className="h-4 w-4" />
+                  <Edit2 className="h-4 w-4 mr-1" />
+                  Edit
                 </Button>
               ) : (
-                <Button variant="ghost" size="sm" onClick={handleSaveFinancials}>
-                  <Save className="h-4 w-4" />
+                <Button variant="default" size="sm" onClick={handleSaveFinancials}>
+                  <Save className="h-4 w-4 mr-1" />
+                  Save
                 </Button>
               )}
             </div>
@@ -407,11 +409,13 @@ export default function CommunityDetailPage({ params }: CommunityDetailPageProps
                 </CardTitle>
                 {!editingCare ? (
                   <Button variant="ghost" size="sm" onClick={() => setEditingCare(true)}>
-                    <Edit2 className="h-4 w-4" />
+                    <Edit2 className="h-4 w-4 mr-1" />
+                    Edit
                   </Button>
                 ) : (
-                  <Button variant="ghost" size="sm" onClick={handleSaveCare}>
-                    <Save className="h-4 w-4" />
+                  <Button variant="default" size="sm" onClick={handleSaveCare}>
+                    <Save className="h-4 w-4 mr-1" />
+                    Save
                   </Button>
                 )}
               </div>
@@ -491,11 +495,13 @@ export default function CommunityDetailPage({ params }: CommunityDetailPageProps
                 </CardTitle>
                 {!editingHousing ? (
                   <Button variant="ghost" size="sm" onClick={() => setEditingHousing(true)}>
-                    <Edit2 className="h-4 w-4" />
+                    <Edit2 className="h-4 w-4 mr-1" />
+                    Edit
                   </Button>
                 ) : (
-                  <Button variant="ghost" size="sm" onClick={handleSaveHousing}>
-                    <Save className="h-4 w-4" />
+                  <Button variant="default" size="sm" onClick={handleSaveHousing}>
+                    <Save className="h-4 w-4 mr-1" />
+                    Save
                   </Button>
                 )}
               </div>
@@ -575,11 +581,13 @@ export default function CommunityDetailPage({ params }: CommunityDetailPageProps
                 </CardTitle>
                 {!editingCommunity ? (
                   <Button variant="ghost" size="sm" onClick={() => setEditingCommunity(true)}>
-                    <Edit2 className="h-4 w-4" />
+                    <Edit2 className="h-4 w-4 mr-1" />
+                    Edit
                   </Button>
                 ) : (
-                  <Button variant="ghost" size="sm" onClick={handleSaveCommunity}>
-                    <Save className="h-4 w-4" />
+                  <Button variant="default" size="sm" onClick={handleSaveCommunity}>
+                    <Save className="h-4 w-4 mr-1" />
+                    Save
                   </Button>
                 )}
               </div>

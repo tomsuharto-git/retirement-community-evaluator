@@ -79,7 +79,7 @@ export function CommunityReviewV2({ community, onUpdate }: CommunityReviewV2Prop
           <button
             key={star}
             type="button"
-            onClick={() => setRatings({ ...ratings, [category]: star })}
+            onClick={() => setRatings({ ...ratings, [category]: star === rating ? 0 : star })}
             className="transition-transform hover:scale-110"
           >
             <Star
